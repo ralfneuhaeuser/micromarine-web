@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a1b2c">
+<title>MicroMarine Web · V0.1</title>
+<style>
+:root{font-family:system-ui,-apple-system,sans-serif;color:#e9f4fa;background:#071827;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(150deg,#071827,#11334b)}
+main{max-width:850px;margin:auto;padding:18px 14px 38px}header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+h1{font-size:1.45rem;margin:0}small,.muted{color:#a6c1cf}.pill{background:#234b61;border:1px solid #3e7288;border-radius:50px;padding:7px 10px;font-size:.8rem}
+.panel{background:#102c40;border:1px solid #2b536a;border-radius:18px;padding:16px;margin-top:14px;box-shadow:0 10px 28px #0003}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+button,select{font:inherit;color:#e9f4fa;background:#20495f;border:1px solid #49758c;border-radius:12px;padding:10px 14px;cursor:pointer}
+button.active{background:#0e837f;border-color:#4ed4cb}button:focus-visible,select:focus-visible{outline:3px solid #8ce9e1}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.joystick{text-align:center}
+.pad{height:min(37vw,240px);width:min(37vw,240px);max-width:100%;aspect-ratio:1;touch-action:none;user-select:none;margin:14px auto;position:relative;border-radius:50%;background:radial-gradient(circle,#1b4359 0 14%,#17364b 15% 53%,#234b61 54% 55%,#122f43 56%);border:2px solid #3c7187;box-shadow:inset 0 0 22px #0006}
+.pad:before,.pad:after{content:"";position:absolute;background:#3e7086;opacity:.6}.pad:before{width:1px;height:90%;left:50%;top:5%}.pad:after{height:1px;width:90%;top:50%;left:5%}
+.knob{position:absolute;width:29%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 25%,#b6fff1,#26a99f 60%,#086a70);border:3px solid #a4eee4;box-shadow:0 4px 14px #0008;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:1}
+.values{font-variant-numeric:tabular-nums;color:#b4e8e4;font-size:.9rem}
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.stop{background:#9c303c;border-color:#f0808a;font-weight:700}.stop:active{background:#cf4650}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{background:#0b2435;border-radius:12px;padding:12px}.stat strong{display:block;font-size:1.15rem;margin-top:5px}
+label{display:inline-flex;align-items:center;gap:8px}input{accent-color:#35c6b7}footer{font-size:.8rem;margin-top:18px;color:#a6c1cf}
+@media(max-width:480px){.panel{padding:12px}.grid{gap:6px}.stats{grid-template-columns:repeat(2,1fr)}.pad{width:42vw;height:42vw}h1{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<main>
+<header><div><h1>MicroMarine Web</h1><small>V0.1 · RC-Boot Fernsteuerung</small></div><span class="pill" id="status">● Demo / Offline</span></header>
+<nav aria-label="Bootsprofil">
+<button class="active" data-profile="sail">Segelboot</button>
+<button data-profile="single">Motor + Ruder</button>
+<button data-profile="twin">Zweimotorig</button>
+</nav>
+<section class="panel">
+<div class="grid">
+<div class="joystick"><strong id="leftTitle">Segel</strong><div class="pad" id="leftPad" role="group" aria-label="Virtueller Steuerknüppel Segel"><div class="knob"></div></div><div class="values" id="leftValue">0 %</div></div>
+<div class="joystick"><strong id="rightTitle">Ruder</strong><div class="pad" id="rightPad" role="group" aria-label="Virtueller Steuerknüppel Ruder"><div class="knob"></div></div><div class="values" id="rightValue">0 %</div></div>
+</div>
+<p class="muted" id="hint">Segelstellung bleibt beim Loslassen erhalten; Ruder kehrt zur Mitte zurück.</p>
+<div class="controls"><label><input type="checkbox" id="lights"> Positionslichter</label><label><input type="checkbox" id="special"> Sonderfunktion</label><button class="stop" id="stop">■ NOT-STOPP</button></div>
+</section>
+<section class="panel"><strong>Telemetrie · simuliert</strong><div class="stats" style="margin-top:12px">
+<div class="stat"><small>Akku</small><strong id="battery">4,05 V</strong></div>
+<div class="stat"><small>Signal</small><strong>Demo</strong></div>
+<div class="stat"><small>Motor links</small><strong id="motorL">0 %</strong></div>
+<div class="stat"><small>Motor rechts</small><strong id="motorR">0 %</strong></div>
+<div class="stat"><small>Ruder</small><strong id="rudder">0 %</strong></div>
+<div class="stat"><small>Segel</small><strong id="sail">0 %</strong></div>
+</div></section>
+<footer>Nur interaktiver UI-Prototyp. Keine Hardwareverbindung, keine reale Telemetrie und kein wirksamer Not-Stopp. Für den späteren Bootsbetrieb ist ein unabhängiger Failsafe im Empfänger erforderlich.</footer>
+</main>
+<script>
+(()=>{
+const $=id=>document.getElementById(id);
+let profile='sail',left={x:0,y:0},right={x:0,y:0};
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+function update(){
+const gas=Math.round(-left.y*100),turn=Math.round(right.x*100);
+$('leftValue').textContent=(profile==='sail'?'Segel: ':'Gas: ')+gas+' %';
+$('rightValue').textContent='Ruder: '+turn+' %';
+$('sail').textContent=profile==='sail'?gas+' %':'–';
+$('rudder').textContent=turn+' %';
+$('motorL').textContent=profile==='twin'?clamp(gas+turn,-100,100)+' %':profile==='single'?gas+' %':'–';
+$('motorR').textContent=profile==='twin'?clamp(gas-turn,-100,100)+' %':'–';
+}
+function paint(el,v){const k=el.querySelector('.knob');k.style.left=(50+v.x*35)+'%';k.style.top=(50+v.y*35)+'%'}
+function stick(id,which){
+const el=$(id);let active=null;
+function set(e){const r=el.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,rad=r.width*.35;let x=(e.clientX-cx)/rad,y=(e.clientY-cy)/rad;const m=Math.hypot(x,y);if(m>1){x/=m;y/=m}const v={x:clamp(x,-1,1),y:clamp(y,-1,1)};if(which==='left')left=v;else right=v;paint(el,v);update()}
+el.addEventListener('pointerdown',e=>{active=e.pointerId;el.setPointerCapture(active);set(e)});
+el.addEventListener('pointermove',e=>{if(e.pointerId===active)set(e)});
+function release(e){if(e.pointerId!==active)return;active=null;if(which==='right'||profile!=='sail'){if(which==='right')right={x:0,y:0};else left={x:0,y:0};paint(el,which==='right'?right:left);update()}}
+el.addEventListener('pointerup',release);el.addEventListener('pointercancel',release);
+}
+stick('leftPad','left');stick('rightPad','right');
+document.querySelectorAll('[data-profile]').forEach(b=>b.addEventListener('click',()=>{
+profile=b.dataset.profile;document.querySelectorAll('[data-profile]').forEach(x=>x.classList.toggle('active',x===b));
+$('leftTitle').textContent=profile==='sail'?'Segel':'Gas';$('rightTitle').textContent=profile==='twin'?'Differenzial':'Ruder';
+$('hint').textContent=profile==='sail'?'Segelstellung bleibt beim Loslassen erhalten; Ruder kehrt zur Mitte zurück.':'Steuerknüppel kehren beim Loslassen zur Mitte zurück.';
+left={x:0,y:0};right={x:0,y:0};paint($('leftPad'),left);paint($('rightPad'),right);update();
+}));
+$('stop').addEventListener('click',()=>{left={x:0,y:0};right={x:0,y:0};paint($('leftPad'),left);paint($('rightPad'),right);update()});
+update();
+})();
+</script>
+</body></html>
