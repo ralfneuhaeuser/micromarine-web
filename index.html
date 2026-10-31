@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="MicroMarine">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="manifest" href="./manifest.webmanifest">
-<title>MicroMarine Web · V0.5</title>
+<title>MicroMarine Web · V0.6</title>
 <style>
 *{box-sizing:border-box}html{font-family:system-ui,-apple-system,Segoe UI,sans-serif}body{margin:0;min-height:100vh}button,select{font:inherit;cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #55c9e9;outline-offset:3px}
 body[data-theme="maritime"]{color:#271c15;background:linear-gradient(#a9c9d5 0,#507d92 22%,#173c55 44%,#082537 100%);background-attachment:fixed}
@@ -24,7 +24,7 @@ body[data-theme="maritime"]{color:#271c15;background:linear-gradient(#a9c9d5 0,#
 body[data-theme="neutral"]{background:linear-gradient(145deg,#071827,#153a53);color:#e9f4fa}body[data-theme="neutral"] .shell{background:#102c40;border:2px solid #31546b;box-shadow:none}body[data-theme="neutral"] .brand,body[data-theme="neutral"] .switch-panel,body[data-theme="neutral"] .stick-panel{background:#1c4055;color:#e9f4fa;border:2px solid #49758c;box-shadow:none}body[data-theme="neutral"] .tabs button{background:#20495f;color:#e9f4fa;border:1px solid #49758c;box-shadow:none}body[data-theme="neutral"] .tabs button.active{background:#0e837f}body[data-theme="neutral"] .gauge{border:5px solid #47778a}body[data-theme="neutral"] .info{background:#1c4055;color:#e9f4fa;border:1px solid #49758c}body[data-theme="neutral"] .theme-box{border:1px solid #49758c;box-shadow:none}body[data-theme="neutral"] .stop{border:2px solid #ef8c8c;box-shadow:none}
 @media(max-width:640px){.shell{margin:0;border-width:5px;border-radius:15px;padding:10px 8px 18px}.top{justify-content:center}.brand{order:-1;width:100%;padding:8px}.theme-box{padding:6px 9px}.tabs{gap:4px;margin:10px 0}.tabs button{padding:9px 2px;font-size:.75rem;border-width:2px}.gauges{gap:5px}.gauge{border-width:5px}.gauge .dial{border-width:5px}.gauge h2{margin:0 0 3px}.deck{grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.stick-panel{padding:7px 2px}.pad{width:39vw;height:39vw;border-width:4px}.switch-panel{grid-column:1/-1;grid-row:2;padding:9px}.switch-panel h2{margin-bottom:8px}.switches{justify-content:space-evenly}.stop{margin-top:10px;padding:11px}.info{font-size:.75rem;padding:8px}}
 
-/* V0.5: iPhone landscape cockpit / fullscreen web app */
+/* V0.6: iPhone landscape cockpit / fullscreen web app */
 html,body{overscroll-behavior:none}
 body{min-height:100dvh}
 .shell{position:relative}
@@ -56,7 +56,7 @@ html,body{height:100%;min-height:0;overflow:hidden}
 .pad{height:min(37dvh,calc(100dvh - 120px));width:min(37dvh,calc(100dvh - 120px))}
 }
 
-/* V0.5 tactile detailing: polished metal, teak grain, recessed instruments */
+/* V0.6 tactile detailing: polished metal, teak grain, recessed instruments */
 body[data-theme="maritime"] .shell{
 background-image:repeating-linear-gradient(0deg,transparent 0 103px,#31190c 104px,#d69a58 106px,#2a150b 109px,transparent 112px),repeating-linear-gradient(93deg,#713917 0,#a86b35 11px,#bf8042 18px,#6b3518 28px,#a76a35 44px,#8c4c24 60px);
 box-shadow:0 22px 55px #06151fd9,inset 0 0 0 3px #e8c69b,inset 0 0 25px #32180799}
@@ -78,7 +78,7 @@ body[data-theme="maritime"] .tabs button.active{box-shadow:0 4px 8px #2d160ca8,i
 body[data-theme="maritime"] .shell{box-shadow:inset 0 0 0 2px #e4c7a4}
 }
 
-/* V0.5: sculpted throttle quadrant and riveted classic wood-and-steel helm */
+/* V0.6: sculpted throttle quadrant and riveted classic wood-and-steel helm */
 .lever-pad,.wheel-pad{overflow:hidden;isolation:isolate;background:radial-gradient(circle at 30% 22%,#737b82,#2c343e 58%,#101922 85%)!important;box-shadow:inset 0 0 0 5px #646a6e,inset 0 9px 22px #000d,0 4px 8px #29190caa!important}
 .lever-pad:before,.lever-pad:after,.wheel-pad:before,.wheel-pad:after{display:none}
 .lever-track{position:absolute;left:50%;top:9%;height:82%;width:24%;transform:translateX(-50%);border-radius:35px;background:linear-gradient(90deg,#0b1015,#252e37 23%,#080e15 55%,#3c444b 83%,#080d12);border:3px ridge #b3b7b7;box-shadow:inset 0 2px 8px #000,0 0 0 2px #343a40}
@@ -96,6 +96,32 @@ body[data-theme="maritime"] .shell{box-shadow:inset 0 0 0 2px #e4c7a4}
 .rivet{position:absolute;width:4%;height:4%;border-radius:50%;background:radial-gradient(circle at 25% 25%,#fff,#c3c5c1 30%,#424b50);box-shadow:0 1px 3px #0009}.r1{top:4%;left:48%}.r2{top:23%;left:81%}.r3{top:73%;left:81%}.r4{top:91%;left:48%}.r5{top:73%;left:14%}.r6{top:23%;left:14%}
 body[data-theme="neutral"] .wheel-rim{border-color:#3ba8a5;background:none;box-shadow:0 0 0 3px #7195a2,inset 0 0 0 3px #7195a2}
 @media(orientation:landscape) and (max-height:540px){.wheel-rim{border-width:9px}.wheel-hub{border-width:2px}.throttle-grip{border-width:2px}.lever-track{border-width:2px}}
+
+/* V0.6: engraved circular dial lettering, light reflection and hinged throttle */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.gauge{isolation:isolate}
+.gauge-arc{position:absolute;inset:0;width:100%;height:100%;z-index:3;overflow:visible;pointer-events:none}
+.gauge-arc text{font:700 13px Georgia,serif;letter-spacing:.5px;fill:#3a3029;paint-order:stroke;stroke:#eee0c5;stroke-width:.5px}
+.compass .gauge-arc text{fill:#f0e5c8;stroke:#112b42}
+.gauge:after{content:"";position:absolute;inset:9%;border-radius:50%;background:linear-gradient(145deg,#fff8 0%,#fff2 22%,transparent 45%,#0002 90%);pointer-events:none;z-index:4}
+.gauge strong,.gauge small,.gauge .dial,.gauge .rose{position:relative;z-index:2}
+.gauge .dial{margin-top:16%}
+.compass .rose{margin-top:10%}
+.gauge strong{font-size:clamp(.9rem,2.2vw,1.55rem)}
+.lever-pad{perspective:550px}
+.throttle-handle{top:50%!important;left:50%;width:48%;height:66%;transform:translate(-50%,-50%) rotate(0deg);transform-origin:50% 86%;transition:transform .09s ease-out;filter:drop-shadow(5px 7px 3px #000a)}
+.throttle-grip{height:33%;top:0;border-radius:48% 48% 34% 34%;background:radial-gradient(ellipse at 26% 14%,#fff,#c7d2d4 18%,#6e7d85 40%,#1b2732 76%,#080e17)}
+.throttle-stem{top:27%;height:60%;background:linear-gradient(90deg,#2a3239 0%,#e8eeeb 24%,#f9f9f2 38%,#6c7a83 67%,#202932 100%)}
+.throttle-base{bottom:7%;height:17%;background:radial-gradient(ellipse at 30% 25%,#fff,#b3bbc0 27%,#45525c 76%,#111b25)}
+.lever-track{width:57%;height:28%;top:62%;border-radius:50%;background:radial-gradient(ellipse,#101720 20%,#2c3640 50%,#aab4b7 70%,#222c34 90%);box-shadow:inset 0 3px 8px #000d,0 0 0 2px #ddd7cc}
+.lever-track:before{display:none}
+body[data-theme="maritime"] .wheel-rim{background:linear-gradient(145deg,#f9fbf7,#65727a 25%,#e5ece9 52%,#46515b 76%,#e6e4d8) padding-box,conic-gradient(#9d592c,#e9bc7b,#683417,#c58b4c,#542b16,#d7a36a,#9d592c) border-box}
+@media(orientation:landscape) and (max-height:540px){
+.gauge-arc{display:none}
+.gauge .dial{display:none}
+.gauge strong{font-size:.65rem}
+.throttle-handle{height:76%}
+}
 </style>
 </head>
 <body data-theme="maritime">
@@ -111,9 +137,9 @@ body[data-theme="neutral"] .wheel-rim{border-color:#3ba8a5;background:none;box-s
 <button type="button" data-profile="twin">⚓ Zweimotorig</button>
 </nav>
 <section class="gauges" aria-label="Simulierte Telemetrie">
-<div class="gauge"><h2>Akku · Spannung</h2><div class="dial"><div class="needle" style="transform:rotate(45deg)"></div></div><strong id="battery">4,05 V</strong><small>DEMO</small></div>
-<div class="gauge compass"><h2>Kompass</h2><div class="rose" id="compassRose">✦</div><strong id="headingText">000°</strong><small>SIMULIERT</small></div>
-<div class="gauge"><h2>Motorleistung</h2><div class="dial"><div class="needle" id="powerNeedle" style="transform:rotate(-85deg)"></div></div><strong id="power">0 %</strong><small>SIMULIERT</small></div>
+<div class="gauge"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcBattery" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcBattery" startOffset="50%" text-anchor="middle">Akku · Spannung</textPath></text></svg><span class="sr-only">Akku · Spannung</span><div class="dial"><div class="needle" style="transform:rotate(45deg)"></div></div><strong id="battery">4,05 V</strong><small>DEMO</small></div>
+<div class="gauge compass"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcCompass" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcCompass" startOffset="50%" text-anchor="middle">Kompass</textPath></text></svg><span class="sr-only">Kompass</span><div class="rose" id="compassRose">✦</div><strong id="headingText">000°</strong><small>SIMULIERT</small></div>
+<div class="gauge"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcPower" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcPower" startOffset="50%" text-anchor="middle">Motorleistung</textPath></text></svg><span class="sr-only">Motorleistung</span><div class="dial"><div class="needle" id="powerNeedle" style="transform:rotate(-85deg)"></div></div><strong id="power">0 %</strong><small>SIMULIERT</small></div>
 </section>
 <section class="deck" aria-label="Steuerung">
 <div class="stick-panel"><h2 id="leftTitle">Segel</h2><div class="pad lever-pad" id="leftPad" aria-label="Vertikaler Gas- oder Segelhebel" role="slider" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0" tabindex="0"><div class="lever-track"></div><div class="throttle-handle"><span class="throttle-grip"></span><span class="throttle-stem"></span><span class="throttle-base"></span></div></div><div class="value" id="leftValue">0 %</div></div>
@@ -143,7 +169,7 @@ document.addEventListener("fullscreenchange",fsLabel);fsLabel();
 try{const saved=localStorage.getItem("micromarine-theme");if(saved==="neutral"||saved==="maritime")theme.value=saved}catch(e){}
 document.body.dataset.theme=theme.value;
 theme.addEventListener("change",()=>{document.body.dataset.theme=theme.value;try{localStorage.setItem("micromarine-theme",theme.value)}catch(e){}});
-function paint(el,v){if(el.id==="leftPad"){const handle=el.querySelector(".throttle-handle");handle.style.top=(50+v.y*30)+"%";el.setAttribute("aria-valuenow",String(Math.round(-v.y*100)))}else{const wheel=el.querySelector(".wheel-assembly");wheel.style.transform="rotate("+(v.x*100)+"deg)";el.setAttribute("aria-valuenow",String(Math.round(v.x*100)))}}
+function paint(el,v){if(el.id==="leftPad"){const handle=el.querySelector(".throttle-handle");handle.style.transform="translate(-50%,-50%) rotate("+(v.y*42)+"deg)";el.setAttribute("aria-valuenow",String(Math.round(-v.y*100)))}else{const wheel=el.querySelector(".wheel-assembly");wheel.style.transform="rotate("+(v.x*100)+"deg)";el.setAttribute("aria-valuenow",String(Math.round(v.x*100)))}}
 function update(){
 const gas=Math.round(-left.y*100),rudder=Math.round(right.x*100);
 const ml=profile==="twin"?clamp(gas+rudder,-100,100):profile==="single"?gas:null;
