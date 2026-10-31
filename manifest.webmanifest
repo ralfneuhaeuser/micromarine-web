@@ -8,5 +8,13 @@
   "orientation": "landscape",
   "background_color": "#392318",
   "theme_color": "#392318",
-  "lang": "de"
+  "lang": "de",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
 }
