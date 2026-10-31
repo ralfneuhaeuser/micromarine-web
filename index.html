@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="MicroMarine">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="manifest" href="./manifest.webmanifest">
-<title>MicroMarine Web · V0.6</title>
+<title>MicroMarine Web · V0.7</title>
 <style>
 *{box-sizing:border-box}html{font-family:system-ui,-apple-system,Segoe UI,sans-serif}body{margin:0;min-height:100vh}button,select{font:inherit;cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #55c9e9;outline-offset:3px}
 body[data-theme="maritime"]{color:#271c15;background:linear-gradient(#a9c9d5 0,#507d92 22%,#173c55 44%,#082537 100%);background-attachment:fixed}
@@ -24,7 +24,7 @@ body[data-theme="maritime"]{color:#271c15;background:linear-gradient(#a9c9d5 0,#
 body[data-theme="neutral"]{background:linear-gradient(145deg,#071827,#153a53);color:#e9f4fa}body[data-theme="neutral"] .shell{background:#102c40;border:2px solid #31546b;box-shadow:none}body[data-theme="neutral"] .brand,body[data-theme="neutral"] .switch-panel,body[data-theme="neutral"] .stick-panel{background:#1c4055;color:#e9f4fa;border:2px solid #49758c;box-shadow:none}body[data-theme="neutral"] .tabs button{background:#20495f;color:#e9f4fa;border:1px solid #49758c;box-shadow:none}body[data-theme="neutral"] .tabs button.active{background:#0e837f}body[data-theme="neutral"] .gauge{border:5px solid #47778a}body[data-theme="neutral"] .info{background:#1c4055;color:#e9f4fa;border:1px solid #49758c}body[data-theme="neutral"] .theme-box{border:1px solid #49758c;box-shadow:none}body[data-theme="neutral"] .stop{border:2px solid #ef8c8c;box-shadow:none}
 @media(max-width:640px){.shell{margin:0;border-width:5px;border-radius:15px;padding:10px 8px 18px}.top{justify-content:center}.brand{order:-1;width:100%;padding:8px}.theme-box{padding:6px 9px}.tabs{gap:4px;margin:10px 0}.tabs button{padding:9px 2px;font-size:.75rem;border-width:2px}.gauges{gap:5px}.gauge{border-width:5px}.gauge .dial{border-width:5px}.gauge h2{margin:0 0 3px}.deck{grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.stick-panel{padding:7px 2px}.pad{width:39vw;height:39vw;border-width:4px}.switch-panel{grid-column:1/-1;grid-row:2;padding:9px}.switch-panel h2{margin-bottom:8px}.switches{justify-content:space-evenly}.stop{margin-top:10px;padding:11px}.info{font-size:.75rem;padding:8px}}
 
-/* V0.6: iPhone landscape cockpit / fullscreen web app */
+/* V0.7: iPhone landscape cockpit / fullscreen web app */
 html,body{overscroll-behavior:none}
 body{min-height:100dvh}
 .shell{position:relative}
@@ -56,7 +56,7 @@ html,body{height:100%;min-height:0;overflow:hidden}
 .pad{height:min(37dvh,calc(100dvh - 120px));width:min(37dvh,calc(100dvh - 120px))}
 }
 
-/* V0.6 tactile detailing: polished metal, teak grain, recessed instruments */
+/* V0.7 tactile detailing: polished metal, teak grain, recessed instruments */
 body[data-theme="maritime"] .shell{
 background-image:repeating-linear-gradient(0deg,transparent 0 103px,#31190c 104px,#d69a58 106px,#2a150b 109px,transparent 112px),repeating-linear-gradient(93deg,#713917 0,#a86b35 11px,#bf8042 18px,#6b3518 28px,#a76a35 44px,#8c4c24 60px);
 box-shadow:0 22px 55px #06151fd9,inset 0 0 0 3px #e8c69b,inset 0 0 25px #32180799}
@@ -78,7 +78,7 @@ body[data-theme="maritime"] .tabs button.active{box-shadow:0 4px 8px #2d160ca8,i
 body[data-theme="maritime"] .shell{box-shadow:inset 0 0 0 2px #e4c7a4}
 }
 
-/* V0.6: sculpted throttle quadrant and riveted classic wood-and-steel helm */
+/* V0.7: sculpted throttle quadrant and riveted classic wood-and-steel helm */
 .lever-pad,.wheel-pad{overflow:hidden;isolation:isolate;background:radial-gradient(circle at 30% 22%,#737b82,#2c343e 58%,#101922 85%)!important;box-shadow:inset 0 0 0 5px #646a6e,inset 0 9px 22px #000d,0 4px 8px #29190caa!important}
 .lever-pad:before,.lever-pad:after,.wheel-pad:before,.wheel-pad:after{display:none}
 .lever-track{position:absolute;left:50%;top:9%;height:82%;width:24%;transform:translateX(-50%);border-radius:35px;background:linear-gradient(90deg,#0b1015,#252e37 23%,#080e15 55%,#3c444b 83%,#080d12);border:3px ridge #b3b7b7;box-shadow:inset 0 2px 8px #000,0 0 0 2px #343a40}
@@ -97,7 +97,7 @@ body[data-theme="maritime"] .shell{box-shadow:inset 0 0 0 2px #e4c7a4}
 body[data-theme="neutral"] .wheel-rim{border-color:#3ba8a5;background:none;box-shadow:0 0 0 3px #7195a2,inset 0 0 0 3px #7195a2}
 @media(orientation:landscape) and (max-height:540px){.wheel-rim{border-width:9px}.wheel-hub{border-width:2px}.throttle-grip{border-width:2px}.lever-track{border-width:2px}}
 
-/* V0.6: engraved circular dial lettering, light reflection and hinged throttle */
+/* V0.7: engraved circular dial lettering, light reflection and hinged throttle */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .gauge{isolation:isolate}
 .gauge-arc{position:absolute;inset:0;width:100%;height:100%;z-index:3;overflow:visible;pointer-events:none}
@@ -121,6 +121,75 @@ body[data-theme="maritime"] .wheel-rim{background:linear-gradient(145deg,#f9fbf7
 .gauge .dial{display:none}
 .gauge strong{font-size:.65rem}
 .throttle-handle{height:76%}
+}
+
+/* V0.7 — unified instrument craft, not a flat illustration */
+:root{--mm-steel-light:#f4f1e9;--mm-steel-mid:#9a9d9d;--mm-steel-dark:#3e454b;--mm-wood:#8e4c23;--mm-cream:#f1e7d4}
+body[data-theme="maritime"] .shell{
+background-color:#945225;
+background-image:
+linear-gradient(90deg,#160d0866 0,transparent 3%,transparent 97%,#170d0866 100%),
+repeating-linear-gradient(0deg,transparent 0,transparent 104px,#2a150a 105px,#e4ac6c 107px,#3a1b0b 109px,transparent 112px),
+repeating-linear-gradient(97deg,#6c3416 0,#aa6630 12px,#c18243 22px,#7b3d1b 35px,#b77a3a 52px,#8d4a24 68px,#b9793d 82px);
+border:6px solid #7d8181;outline:2px solid #c5bba7;outline-offset:-10px;
+box-shadow:0 15px 38px #07141bb0,inset 0 0 0 3px #e7e3d6,inset 0 0 25px #2e110c8a}
+body[data-theme="maritime"] .brand{
+background:linear-gradient(160deg,#fff9e9 0%,#9f9b92 17%,#f5ead8 35%,#9c9386 65%,#ded8cc 85%,#5b5b59 100%);
+border:3px ridge #d8d8d2;box-shadow:inset 0 1px 3px #fff,0 4px 9px #2412079c}
+body[data-theme="maritime"] .tabs button{
+background:linear-gradient(160deg,#f8f4e9,#c5c2bc 45%,#777c80 100%);
+border:3px ridge #d8d6cf;color:#172734;text-shadow:0 1px #fff9;
+box-shadow:inset 0 2px 4px #fff8,0 4px 8px #2414099c}
+body[data-theme="maritime"] .tabs button.active{
+background:linear-gradient(#2377ae,#063e6b 55%,#071f36);
+color:#fff;text-shadow:0 1px 2px #00192b;
+box-shadow:inset 0 0 0 2px #84bce0,inset 0 3px 9px #0007,0 4px 8px #2414099c}
+body[data-theme="maritime"] .gauge{
+border:clamp(6px,1.1vw,12px) ridge #b8babb;
+background:radial-gradient(ellipse at 35% 26%,#fffdf5,#f2e7d5 45%,#c8b9a4 82%,#9c8d7a);
+box-shadow:0 5px 9px #28160bc9,inset 0 0 0 3px #6c6e70,inset 0 0 0 6px #d4d1c9,inset 0 5px 10px #0007}
+body[data-theme="maritime"] .gauge.compass{
+background:radial-gradient(ellipse at 34% 24%,#335f7e,#0a2d49 60%,#061727 100%)}
+.gauge-arc text{font-family:system-ui,-apple-system,sans-serif;font-weight:800;font-size:11px;letter-spacing:.25px}
+.gauge .dial{width:67%;height:28%;margin-top:16%;border-top:7px solid #568c77;border-left:7px solid #c15c4d;border-right:7px solid #4b8b69}
+.gauge strong{border-radius:6px;background:linear-gradient(#18212b,#3b4651);color:#fff;padding:2px 9px;box-shadow:inset 0 2px 5px #000b,0 1px 1px #fff8;font-size:clamp(.9rem,2vw,1.4rem)}
+.gauge.compass strong{background:#081726;border:1px solid #7f9bab}
+.gauge small{font-size:.62rem;letter-spacing:.04em}
+body[data-theme="maritime"] .stick-panel,body[data-theme="maritime"] .switch-panel{
+background:linear-gradient(115deg,#7c7770,#f6f0e4 16%,#a8a6a1 34%,#e4e0d6 52%,#777a7b 80%,#ded8cb);
+border:4px ridge #d7d4cd;
+box-shadow:inset 0 0 0 2px #5e5c58,inset 0 3px 4px #fff9,0 5px 9px #291409ac}
+body[data-theme="maritime"] .stick-panel h2,body[data-theme="maritime"] .switch-panel h2{
+color:#25221f;text-shadow:0 1px #fff9}
+body[data-theme="maritime"] .lever-pad,body[data-theme="maritime"] .wheel-pad{
+border:5px ridge #e0d9c8;
+background:radial-gradient(ellipse at 34% 20%,#5d6770,#252c34 64%,#0c1117 100%)!important}
+body[data-theme="maritime"] .lever-track{
+background:radial-gradient(ellipse at 35% 25%,#333d47,#060c13 68%);
+border:5px ridge #adb4b4;box-shadow:inset 0 5px 10px #000d,0 2px 4px #fff5}
+body[data-theme="maritime"] .throttle-grip{
+background:radial-gradient(ellipse at 27% 18%,#fffdf1,#d2d7d8 18%,#7a858b 44%,#222c36 80%);
+border:3px ridge #d5d6d3;box-shadow:inset 0 2px 5px #fff9,0 3px 7px #000a}
+body[data-theme="maritime"] .wheel-rim{
+background:linear-gradient(140deg,#f5f7f3,#606d75 22%,#e6e9e4 46%,#4b555b 70%,#e6e3d7) padding-box,
+conic-gradient(#663317,#bd783b 10%,#f0c58d 16%,#81421d 30%,#b5793d 46%,#e4b37b 52%,#713719 69%,#d19a5a 83%,#663317) border-box;
+box-shadow:inset 0 0 0 3px #f0d0a5,0 0 0 3px #aeb1ae,inset 0 4px 7px #000a,0 5px 8px #0009}
+body[data-theme="maritime"] .switch-panel .switch{min-width:0}
+body[data-theme="maritime"] .switch-panel .lamp{border-color:#b5b9b6}
+body[data-theme="maritime"] .switch-panel .lever{
+background:linear-gradient(90deg,#2c3338,#f9f9f2 28%,#90999c 55%,#333b42);
+box-shadow:0 2px 5px #0007;transform-origin:center 85%}
+body[data-theme="maritime"] .switch input:checked~.lever{transform:rotate(-24deg)}
+body[data-theme="maritime"] .switch input:not(:checked)~.lever{transform:rotate(24deg)}
+body[data-theme="maritime"] .stop{
+background:linear-gradient(#f6685f,#ba1213 42%,#7e0305 80%,#490002);
+border:5px ridge #c5c1b9;box-shadow:inset 0 3px 5px #ffb1a3,0 4px 8px #28120bb3}
+@media(orientation:landscape) and (max-height:540px){
+body[data-theme="maritime"] .shell{border-width:3px;outline:none}
+body[data-theme="maritime"] .gauge{border-width:3px;box-shadow:inset 0 0 0 1px #888,0 2px 4px #0008}
+.gauge strong{font-size:.62rem;padding:1px 2px}
+body[data-theme="maritime"] .stick-panel,body[data-theme="maritime"] .switch-panel{border-width:2px}
+body[data-theme="maritime"] .lever-pad,body[data-theme="maritime"] .wheel-pad{border-width:3px}
 }
 </style>
 </head>
