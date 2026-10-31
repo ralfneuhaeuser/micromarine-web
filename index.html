@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="MicroMarine">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="manifest" href="./manifest.webmanifest">
-<title>MicroMarine Web · V0.7</title>
+<title>MicroMarine Web · V0.8</title>
 <style>
 *{box-sizing:border-box}html{font-family:system-ui,-apple-system,Segoe UI,sans-serif}body{margin:0;min-height:100vh}button,select{font:inherit;cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #55c9e9;outline-offset:3px}
 body[data-theme="maritime"]{color:#271c15;background:linear-gradient(#a9c9d5 0,#507d92 22%,#173c55 44%,#082537 100%);background-attachment:fixed}
@@ -24,7 +24,7 @@ body[data-theme="maritime"]{color:#271c15;background:linear-gradient(#a9c9d5 0,#
 body[data-theme="neutral"]{background:linear-gradient(145deg,#071827,#153a53);color:#e9f4fa}body[data-theme="neutral"] .shell{background:#102c40;border:2px solid #31546b;box-shadow:none}body[data-theme="neutral"] .brand,body[data-theme="neutral"] .switch-panel,body[data-theme="neutral"] .stick-panel{background:#1c4055;color:#e9f4fa;border:2px solid #49758c;box-shadow:none}body[data-theme="neutral"] .tabs button{background:#20495f;color:#e9f4fa;border:1px solid #49758c;box-shadow:none}body[data-theme="neutral"] .tabs button.active{background:#0e837f}body[data-theme="neutral"] .gauge{border:5px solid #47778a}body[data-theme="neutral"] .info{background:#1c4055;color:#e9f4fa;border:1px solid #49758c}body[data-theme="neutral"] .theme-box{border:1px solid #49758c;box-shadow:none}body[data-theme="neutral"] .stop{border:2px solid #ef8c8c;box-shadow:none}
 @media(max-width:640px){.shell{margin:0;border-width:5px;border-radius:15px;padding:10px 8px 18px}.top{justify-content:center}.brand{order:-1;width:100%;padding:8px}.theme-box{padding:6px 9px}.tabs{gap:4px;margin:10px 0}.tabs button{padding:9px 2px;font-size:.75rem;border-width:2px}.gauges{gap:5px}.gauge{border-width:5px}.gauge .dial{border-width:5px}.gauge h2{margin:0 0 3px}.deck{grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.stick-panel{padding:7px 2px}.pad{width:39vw;height:39vw;border-width:4px}.switch-panel{grid-column:1/-1;grid-row:2;padding:9px}.switch-panel h2{margin-bottom:8px}.switches{justify-content:space-evenly}.stop{margin-top:10px;padding:11px}.info{font-size:.75rem;padding:8px}}
 
-/* V0.7: iPhone landscape cockpit / fullscreen web app */
+/* V0.8: iPhone landscape cockpit / fullscreen web app */
 html,body{overscroll-behavior:none}
 body{min-height:100dvh}
 .shell{position:relative}
@@ -56,7 +56,7 @@ html,body{height:100%;min-height:0;overflow:hidden}
 .pad{height:min(37dvh,calc(100dvh - 120px));width:min(37dvh,calc(100dvh - 120px))}
 }
 
-/* V0.7 tactile detailing: polished metal, teak grain, recessed instruments */
+/* V0.8 tactile detailing: polished metal, teak grain, recessed instruments */
 body[data-theme="maritime"] .shell{
 background-image:repeating-linear-gradient(0deg,transparent 0 103px,#31190c 104px,#d69a58 106px,#2a150b 109px,transparent 112px),repeating-linear-gradient(93deg,#713917 0,#a86b35 11px,#bf8042 18px,#6b3518 28px,#a76a35 44px,#8c4c24 60px);
 box-shadow:0 22px 55px #06151fd9,inset 0 0 0 3px #e8c69b,inset 0 0 25px #32180799}
@@ -78,7 +78,7 @@ body[data-theme="maritime"] .tabs button.active{box-shadow:0 4px 8px #2d160ca8,i
 body[data-theme="maritime"] .shell{box-shadow:inset 0 0 0 2px #e4c7a4}
 }
 
-/* V0.7: sculpted throttle quadrant and riveted classic wood-and-steel helm */
+/* V0.8: sculpted throttle quadrant and riveted classic wood-and-steel helm */
 .lever-pad,.wheel-pad{overflow:hidden;isolation:isolate;background:radial-gradient(circle at 30% 22%,#737b82,#2c343e 58%,#101922 85%)!important;box-shadow:inset 0 0 0 5px #646a6e,inset 0 9px 22px #000d,0 4px 8px #29190caa!important}
 .lever-pad:before,.lever-pad:after,.wheel-pad:before,.wheel-pad:after{display:none}
 .lever-track{position:absolute;left:50%;top:9%;height:82%;width:24%;transform:translateX(-50%);border-radius:35px;background:linear-gradient(90deg,#0b1015,#252e37 23%,#080e15 55%,#3c444b 83%,#080d12);border:3px ridge #b3b7b7;box-shadow:inset 0 2px 8px #000,0 0 0 2px #343a40}
@@ -97,7 +97,7 @@ body[data-theme="maritime"] .shell{box-shadow:inset 0 0 0 2px #e4c7a4}
 body[data-theme="neutral"] .wheel-rim{border-color:#3ba8a5;background:none;box-shadow:0 0 0 3px #7195a2,inset 0 0 0 3px #7195a2}
 @media(orientation:landscape) and (max-height:540px){.wheel-rim{border-width:9px}.wheel-hub{border-width:2px}.throttle-grip{border-width:2px}.lever-track{border-width:2px}}
 
-/* V0.7: engraved circular dial lettering, light reflection and hinged throttle */
+/* V0.8: engraved circular dial lettering, light reflection and hinged throttle */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .gauge{isolation:isolate}
 .gauge-arc{position:absolute;inset:0;width:100%;height:100%;z-index:3;overflow:visible;pointer-events:none}
@@ -123,7 +123,7 @@ body[data-theme="maritime"] .wheel-rim{background:linear-gradient(145deg,#f9fbf7
 .throttle-handle{height:76%}
 }
 
-/* V0.7 — unified instrument craft, not a flat illustration */
+/* V0.8 — unified instrument craft, not a flat illustration */
 :root{--mm-steel-light:#f4f1e9;--mm-steel-mid:#9a9d9d;--mm-steel-dark:#3e454b;--mm-wood:#8e4c23;--mm-cream:#f1e7d4}
 body[data-theme="maritime"] .shell{
 background-color:#945225;
@@ -191,6 +191,14 @@ body[data-theme="maritime"] .gauge{border-width:3px;box-shadow:inset 0 0 0 1px #
 body[data-theme="maritime"] .stick-panel,body[data-theme="maritime"] .switch-panel{border-width:2px}
 body[data-theme="maritime"] .lever-pad,body[data-theme="maritime"] .wheel-pad{border-width:3px}
 }
+
+/* V0.8: fore/aft throttle tilt about a horizontal axis, not sideways rotation */
+.throttle-handle{transform-style:preserve-3d;backface-visibility:visible;transform-origin:50% 85%;will-change:transform}
+.lever-pad{perspective:420px;perspective-origin:50% 55%}
+.throttle-grip{box-shadow:inset 0 2px 6px #fff9,0 5px 9px #000a}
+.throttle-stem{box-shadow:inset 3px 0 4px #fff7,3px 4px 5px #0008}
+.lever-pad:after{content:"VORN  +    ·    –  ACHTERN";display:block;position:absolute;bottom:3%;left:0;width:100%;font-size:clamp(6px,.7vw,10px);font-weight:700;letter-spacing:.06em;color:#e9e0cd;text-shadow:0 1px 2px #000}
+body[data-theme="neutral"] .lever-pad:after{color:#e9f4fa}
 </style>
 </head>
 <body data-theme="maritime">
@@ -208,7 +216,7 @@ body[data-theme="maritime"] .lever-pad,body[data-theme="maritime"] .wheel-pad{bo
 <section class="gauges" aria-label="Simulierte Telemetrie">
 <div class="gauge"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcBattery" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcBattery" startOffset="50%" text-anchor="middle">Akku · Spannung</textPath></text></svg><span class="sr-only">Akku · Spannung</span><div class="dial"><div class="needle" style="transform:rotate(45deg)"></div></div><strong id="battery">4,05 V</strong><small>DEMO</small></div>
 <div class="gauge compass"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcCompass" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcCompass" startOffset="50%" text-anchor="middle">Kompass</textPath></text></svg><span class="sr-only">Kompass</span><div class="rose" id="compassRose">✦</div><strong id="headingText">000°</strong><small>SIMULIERT</small></div>
-<div class="gauge"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcPower" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcPower" startOffset="50%" text-anchor="middle">Motorleistung</textPath></text></svg><span class="sr-only">Motorleistung</span><div class="dial"><div class="needle" id="powerNeedle" style="transform:rotate(-85deg)"></div></div><strong id="power">0 %</strong><small>SIMULIERT</small></div>
+<div class="gauge" id="thirdGauge"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcPower" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcPower" startOffset="50%" text-anchor="middle"><tspan id="thirdGaugeTitle">Motorleistung</tspan></textPath></text></svg><span class="sr-only">Motorleistung</span><div class="dial"><div class="needle" id="powerNeedle" style="transform:rotate(-85deg)"></div></div><strong id="power">0 %</strong><small>SIMULIERT</small></div>
 </section>
 <section class="deck" aria-label="Steuerung">
 <div class="stick-panel"><h2 id="leftTitle">Segel</h2><div class="pad lever-pad" id="leftPad" aria-label="Vertikaler Gas- oder Segelhebel" role="slider" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0" tabindex="0"><div class="lever-track"></div><div class="throttle-handle"><span class="throttle-grip"></span><span class="throttle-stem"></span><span class="throttle-base"></span></div></div><div class="value" id="leftValue">0 %</div></div>
@@ -238,18 +246,34 @@ document.addEventListener("fullscreenchange",fsLabel);fsLabel();
 try{const saved=localStorage.getItem("micromarine-theme");if(saved==="neutral"||saved==="maritime")theme.value=saved}catch(e){}
 document.body.dataset.theme=theme.value;
 theme.addEventListener("change",()=>{document.body.dataset.theme=theme.value;try{localStorage.setItem("micromarine-theme",theme.value)}catch(e){}});
-function paint(el,v){if(el.id==="leftPad"){const handle=el.querySelector(".throttle-handle");handle.style.transform="translate(-50%,-50%) rotate("+(v.y*42)+"deg)";el.setAttribute("aria-valuenow",String(Math.round(-v.y*100)))}else{const wheel=el.querySelector(".wheel-assembly");wheel.style.transform="rotate("+(v.x*100)+"deg)";el.setAttribute("aria-valuenow",String(Math.round(v.x*100)))}}
+function paint(el,v){
+if(el.id==="leftPad"){
+const handle=el.querySelector(".throttle-handle");
+// rotateX: forward/backward tip, fixed foot. No left/right pendulum motion.
+handle.style.transform="translate(-50%,-50%) rotateX("+(-v.y*48)+"deg)";
+el.setAttribute("aria-valuenow",String(Math.round(-v.y*100)));
+}else{
+el.querySelector(".wheel-assembly").style.transform="rotate("+(v.x*100)+"deg)";
+el.setAttribute("aria-valuenow",String(Math.round(v.x*100)));
+}}
 function update(){
-const gas=Math.round(-left.y*100),rudder=Math.round(right.x*100);
-const ml=profile==="twin"?clamp(gas+rudder,-100,100):profile==="single"?gas:null;
-const mr=profile==="twin"?clamp(gas-rudder,-100,100):null;
-$("leftValue").textContent=(profile==="sail"?"Segel: ":"Gas: ")+gas+" %";
-$("rightValue").textContent=(profile==="twin"?"Differenzial: ":"Ruder: ")+rudder+" %";
-const p=profile==="sail"?0:Math.abs(gas);
-$("power").textContent=p+" %";
-$("powerNeedle").style.transform="rotate("+(-85+p*1.7)+"deg)";
-$("outputs").textContent="Ruder "+rudder+" % · Motor L "+(ml===null?"–":ml+" %")+" · Motor R "+(mr===null?"–":mr+" %");
+const throttle=Math.round(-left.y*100),rudder=Math.round(right.x*100);
+const sail=Math.round((1+left.y)*50); // top = 0% (hauled in), bottom = 100% (eased out)
+const ml=profile==="twin"?clamp(throttle+rudder,-100,100):profile==="single"?throttle:null;
+const mr=profile==="twin"?clamp(throttle-rudder,-100,100):null;
+$("leftValue").textContent=profile==="sail"?"Schot: "+sail+" %":"Gas: "+throttle+" %";
+$("rightValue").textContent=profile==="twin"?"Differenzial: "+rudder+" %":"Ruder: "+rudder+" %";
+const gaugeValue=profile==="sail"?sail:Math.abs(throttle);
+$("thirdGaugeTitle").textContent=profile==="sail"?"Segelstellung":"Motorleistung";
+$("power").textContent=gaugeValue+" %";
+$("powerNeedle").style.transform="rotate("+(-85+gaugeValue*1.7)+"deg)";
+$("outputs").textContent=profile==="sail"
+?"Ruder "+rudder+" % · Schot "+sail+" % · Kein Motor"
+:profile==="single"
+?"Ruder "+rudder+" % · Motor "+throttle+" %"
+:"Motor links "+ml+" % · Motor rechts "+mr+" %";
 }
+
 function compassUpdate(){
 const angle=((heading%360)+360)%360;
 $("headingText").textContent=String(Math.round(angle)%360).padStart(3,"0")+"°";
@@ -283,18 +307,19 @@ profile=btn.dataset.profile;
 document.querySelectorAll("[data-profile]").forEach(b=>b.classList.toggle("active",b===btn));
 $("leftTitle").textContent=profile==="sail"?"Segel":"Gas";
 $("rightTitle").textContent=profile==="twin"?"Differenzial":"Ruder";
-$("hint").textContent=profile==="sail"?"Segel bleibt stehen · Ruder zentriert sich.":"Gas bleibt stehen · Lenkung zentriert sich.";
+$("hint").textContent=profile==="sail"?"Schot 0 % = dichtgeholt, 100 % = gefiert · Ruder zentriert.":profile==="single"?"Gashebel rastet ein · Ruder zentriert.":"Gashebel rastet ein · Steuerrad mischt linke/rechte Motorleistung.";
 left={x:0,y:0};right={x:0,y:0};
 paint($("leftPad"),left);paint($("rightPad"),right);update();
 }));
 $("stop").addEventListener("click",()=>{
 left={x:0,y:0};right={x:0,y:0};
+["lights","decklight","signal"].forEach(id=>$(id).checked=false);
 paint($("leftPad"),left);paint($("rightPad"),right);update();
 });
 setInterval(()=>{
 const now=performance.now(),dt=Math.min((now-lastTick)/1000,.25);lastTick=now;
 const rudder=right.x;
-const speed=profile==="sail"?.45:Math.max(.15,Math.abs(left.y));
+const speed=profile==="sail"?.45:Math.max(0,Math.abs(left.y));
 heading+=rudder*42*speed*dt;
 compassUpdate();
 },80);
