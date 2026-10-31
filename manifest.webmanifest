@@ -1,0 +1,12 @@
+{
+  "name": "MicroMarine Web",
+  "short_name": "MicroMarine",
+  "description": "Experimentelles RC-Boot-Cockpit",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#392318",
+  "theme_color": "#392318",
+  "lang": "de"
+}
