@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="MicroMarine">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="manifest" href="./manifest.webmanifest">
-<title>MicroMarine Web · V0.3</title>
+<title>MicroMarine Web · V0.4</title>
 <style>
 *{box-sizing:border-box}html{font-family:system-ui,-apple-system,Segoe UI,sans-serif}body{margin:0;min-height:100vh}button,select{font:inherit;cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #55c9e9;outline-offset:3px}
 body[data-theme="maritime"]{color:#271c15;background:linear-gradient(#a9c9d5 0,#507d92 22%,#173c55 44%,#082537 100%);background-attachment:fixed}
@@ -24,7 +24,7 @@ body[data-theme="maritime"]{color:#271c15;background:linear-gradient(#a9c9d5 0,#
 body[data-theme="neutral"]{background:linear-gradient(145deg,#071827,#153a53);color:#e9f4fa}body[data-theme="neutral"] .shell{background:#102c40;border:2px solid #31546b;box-shadow:none}body[data-theme="neutral"] .brand,body[data-theme="neutral"] .switch-panel,body[data-theme="neutral"] .stick-panel{background:#1c4055;color:#e9f4fa;border:2px solid #49758c;box-shadow:none}body[data-theme="neutral"] .tabs button{background:#20495f;color:#e9f4fa;border:1px solid #49758c;box-shadow:none}body[data-theme="neutral"] .tabs button.active{background:#0e837f}body[data-theme="neutral"] .gauge{border:5px solid #47778a}body[data-theme="neutral"] .info{background:#1c4055;color:#e9f4fa;border:1px solid #49758c}body[data-theme="neutral"] .theme-box{border:1px solid #49758c;box-shadow:none}body[data-theme="neutral"] .stop{border:2px solid #ef8c8c;box-shadow:none}
 @media(max-width:640px){.shell{margin:0;border-width:5px;border-radius:15px;padding:10px 8px 18px}.top{justify-content:center}.brand{order:-1;width:100%;padding:8px}.theme-box{padding:6px 9px}.tabs{gap:4px;margin:10px 0}.tabs button{padding:9px 2px;font-size:.75rem;border-width:2px}.gauges{gap:5px}.gauge{border-width:5px}.gauge .dial{border-width:5px}.gauge h2{margin:0 0 3px}.deck{grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.stick-panel{padding:7px 2px}.pad{width:39vw;height:39vw;border-width:4px}.switch-panel{grid-column:1/-1;grid-row:2;padding:9px}.switch-panel h2{margin-bottom:8px}.switches{justify-content:space-evenly}.stop{margin-top:10px;padding:11px}.info{font-size:.75rem;padding:8px}}
 
-/* V0.3: iPhone landscape cockpit / fullscreen web app */
+/* V0.4: iPhone landscape cockpit / fullscreen web app */
 html,body{overscroll-behavior:none}
 body{min-height:100dvh}
 .shell{position:relative}
@@ -55,6 +55,28 @@ html,body{height:100%;min-height:0;overflow:hidden}
 .gauges{display:none}
 .pad{height:min(37dvh,calc(100dvh - 120px));width:min(37dvh,calc(100dvh - 120px))}
 }
+
+/* V0.4 tactile detailing: polished metal, teak grain, recessed instruments */
+body[data-theme="maritime"] .shell{
+background-image:repeating-linear-gradient(0deg,transparent 0 103px,#31190c 104px,#d69a58 106px,#2a150b 109px,transparent 112px),repeating-linear-gradient(93deg,#713917 0,#a86b35 11px,#bf8042 18px,#6b3518 28px,#a76a35 44px,#8c4c24 60px);
+box-shadow:0 22px 55px #06151fd9,inset 0 0 0 3px #e8c69b,inset 0 0 25px #32180799}
+body[data-theme="maritime"] .brand,body[data-theme="maritime"] .switch-panel,body[data-theme="maritime"] .stick-panel{
+background-image:linear-gradient(125deg,#5c5755 0%,#c7c5c1 7%,#fffaf1 17%,#9c9996 33%,#e4ddd2 50%,#8c8580 70%,#f6e8d6 87%,#6c6460 100%);
+border-color:#e3d6c6;box-shadow:0 5px 12px #170c06a6,inset 0 0 0 2px #756e69,inset 0 3px 5px #fff9}
+body[data-theme="maritime"] .gauge{background:radial-gradient(ellipse at 31% 24%,#fffdf5 0%,#eee0c7 46%,#b4a48e 87%,#7c6d61 100%);border-color:#d8d4cc;box-shadow:0 6px 14px #1c0d06c9,inset 0 0 0 3px #6e645d,inset 0 0 12px #0007}
+body[data-theme="maritime"] .gauge.compass{background:radial-gradient(circle at 32% 22%,#3f7095 0%,#092d4d 55%,#041423 100%);box-shadow:0 6px 14px #1c0d06c9,inset 0 0 0 3px #a5a6a6,inset 0 0 20px #0009}
+body[data-theme="maritime"] .pad{background:radial-gradient(circle at 36% 25%,#535b63,#242933 55%,#0c111b 75%);border-color:#ddd7cd;box-shadow:0 4px 6px #24170f9c,inset 0 8px 20px #000d,inset 0 0 0 3px #555d65}
+body[data-theme="maritime"] .knob{background:radial-gradient(circle at 28% 20%,#fff,#e9ebec 14%,#8d969f 34%,#363f4b 70%,#151a21 100%);box-shadow:0 6px 10px #000c,0 0 0 4px #15171c,inset 2px 2px 5px #fff9}
+body[data-theme="maritime"] .stop{box-shadow:0 4px 10px #230d07b0,inset 0 2px 4px #ffaaa4,inset 0 -5px 6px #490000}
+body[data-theme="maritime"] .tabs button{box-shadow:0 4px 8px #2d160ca8,inset 0 2px 3px #fff9}
+body[data-theme="maritime"] .tabs button.active{box-shadow:0 4px 8px #2d160ca8,inset 0 0 12px #6fc3ff66}
+.compass .rose{display:inline-block;transition:transform .2s linear;transform-origin:center;will-change:transform}
+.gauge .heading{font-size:.7rem;letter-spacing:.04em}
+.pad[data-axis="vertical"]:before{width:3px;opacity:.8}
+.pad[data-axis="horizontal"]:after{height:3px;opacity:.8}
+@media(orientation:landscape) and (max-height:540px){
+body[data-theme="maritime"] .shell{box-shadow:inset 0 0 0 2px #e4c7a4}
+}
 </style>
 </head>
 <body data-theme="maritime">
@@ -71,7 +93,7 @@ html,body{height:100%;min-height:0;overflow:hidden}
 </nav>
 <section class="gauges" aria-label="Simulierte Telemetrie">
 <div class="gauge"><h2>Akku · Spannung</h2><div class="dial"><div class="needle" style="transform:rotate(45deg)"></div></div><strong id="battery">4,05 V</strong><small>DEMO</small></div>
-<div class="gauge compass"><h2>Kompass</h2><div class="rose">✦</div><strong>N</strong><small>DEMO · kein GPS</small></div>
+<div class="gauge compass"><h2>Kompass</h2><div class="rose" id="compassRose">✦</div><strong id="headingText">000°</strong><small>SIMULIERT</small></div>
 <div class="gauge"><h2>Motorleistung</h2><div class="dial"><div class="needle" id="powerNeedle" style="transform:rotate(-85deg)"></div></div><strong id="power">0 %</strong><small>SIMULIERT</small></div>
 </section>
 <section class="deck" aria-label="Steuerung">
@@ -91,6 +113,7 @@ html,body{height:100%;min-height:0;overflow:hidden}
 "use strict";
 const $=id=>document.getElementById(id);
 const clamp=(n,min,max)=>Math.min(max,Math.max(min,n));
+let heading=0,lastTick=performance.now();
 let profile="sail",left={x:0,y:0},right={x:0,y:0};
 const theme=$("theme");
 const fs=$("fullscreen");
@@ -113,13 +136,31 @@ $("power").textContent=p+" %";
 $("powerNeedle").style.transform="rotate("+(-85+p*1.7)+"deg)";
 $("outputs").textContent="Ruder "+rudder+" % · Motor L "+(ml===null?"–":ml+" %")+" · Motor R "+(mr===null?"–":mr+" %");
 }
+function compassUpdate(){
+const angle=((heading%360)+360)%360;
+$("headingText").textContent=String(Math.round(angle)%360).padStart(3,"0")+"°";
+$("compassRose").style.transform="rotate("+(-angle)+"deg)";
+}
+function axis(side){return side==="left"?"vertical":"horizontal"}
 function stick(id,side){
-const el=$(id);let pointer=null;
-function move(e){const r=el.getBoundingClientRect(),rad=r.width*.35;let x=(e.clientX-r.left-r.width/2)/rad,y=(e.clientY-r.top-r.height/2)/rad;const mag=Math.hypot(x,y);if(mag>1){x/=mag;y/=mag}const v={x:clamp(x,-1,1),y:clamp(y,-1,1)};if(side==="left")left=v;else right=v;paint(el,v);update()}
+const el=$(id);el.dataset.axis=axis(side);let pointer=null;
+function move(e){
+const r=el.getBoundingClientRect(),rad=r.width*.35;
+const v={x:0,y:0};
+if(side==="left")v.y=clamp((e.clientY-r.top-r.height/2)/rad,-1,1);
+else v.x=clamp((e.clientX-r.left-r.width/2)/rad,-1,1);
+if(side==="left")left=v;else right=v;
+paint(el,v);update();
+}
 el.addEventListener("pointerdown",e=>{if(pointer!==null)return;pointer=e.pointerId;el.setPointerCapture(pointer);move(e)});
 el.addEventListener("pointermove",e=>{if(e.pointerId===pointer)move(e)});
-function release(e){if(e.pointerId!==pointer)return;pointer=null;if(side==="right"||profile!=="sail"){if(side==="right")right={x:0,y:0};else left={x:0,y:0};paint(el,side==="right"?right:left);update()}}
-el.addEventListener("pointerup",release);el.addEventListener("pointercancel",release);
+function release(e){
+if(e.pointerId!==pointer)return;
+pointer=null;
+if(side==="right"){right={x:0,y:0};paint(el,right);update()}
+}
+el.addEventListener("pointerup",release);
+el.addEventListener("pointercancel",release);
 }
 stick("leftPad","left");stick("rightPad","right");
 document.querySelectorAll("[data-profile]").forEach(btn=>btn.addEventListener("click",()=>{
@@ -127,10 +168,22 @@ profile=btn.dataset.profile;
 document.querySelectorAll("[data-profile]").forEach(b=>b.classList.toggle("active",b===btn));
 $("leftTitle").textContent=profile==="sail"?"Segel":"Gas";
 $("rightTitle").textContent=profile==="twin"?"Differenzial":"Ruder";
-$("hint").textContent=profile==="sail"?"Segelstellung bleibt erhalten · Ruder zentriert sich.":"Steuerknüppel zentrieren sich beim Loslassen.";
-left={x:0,y:0};right={x:0,y:0};paint($("leftPad"),left);paint($("rightPad"),right);update();
+$("hint").textContent=profile==="sail"?"Segel bleibt stehen · Ruder zentriert sich.":"Gas bleibt stehen · Lenkung zentriert sich.";
+left={x:0,y:0};right={x:0,y:0};
+paint($("leftPad"),left);paint($("rightPad"),right);update();
 }));
-$("stop").addEventListener("click",()=>{left={x:0,y:0};right={x:0,y:0};paint($("leftPad"),left);paint($("rightPad"),right);update()});
+$("stop").addEventListener("click",()=>{
+left={x:0,y:0};right={x:0,y:0};
+paint($("leftPad"),left);paint($("rightPad"),right);update();
+});
+setInterval(()=>{
+const now=performance.now(),dt=Math.min((now-lastTick)/1000,.25);lastTick=now;
+const rudder=right.x;
+const speed=profile==="sail"?.45:Math.max(.15,Math.abs(left.y));
+heading+=rudder*42*speed*dt;
+compassUpdate();
+},80);
+compassUpdate();
 update();
 })();
 </script>
