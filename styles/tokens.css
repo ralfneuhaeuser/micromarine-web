@@ -1,0 +1,2 @@
+/* Shared design tokens. Theme files override these, not component geometry. */
+:root{--mm-text:#eae2d4;--mm-page-bg:#302a27;--mm-shell-bg:#302a27;--mm-info-bg:#45423c;--mm-info-border:#817a6d;--mm-info-text:#e9dfcb;--mm-focus:#55c9e9}
