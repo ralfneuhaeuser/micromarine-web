@@ -1,0 +1,2 @@
+/* Neutral Modern: existing visual values preserved. */
+body[data-theme="neutral"]{--mm-text:#e9f4fa;--mm-page-bg:linear-gradient(145deg,#071827,#153a53);--mm-shell-bg:#102c40}
