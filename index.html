@@ -713,7 +713,7 @@ document.querySelectorAll("[data-profile]").forEach(btn=>btn.addEventListener("c
 profile=btn.dataset.profile;
 neutralDetent=Math.abs(left.y)<.055;
 $("rotaryKnob").style.setProperty("--rotary-angle",({sail:-45,single:0,twin:45})[profile]+"deg");
-$("profileDrum").textContent=({sail:"SAIL",single:"SINGLE",twin:"TWIN"})[profile];
+$("profileDrum").textContent=({sail:"SAIL",single:"CRUISE",twin:"TWIN"})[profile];
 $("profileDrum").animate([{transform:"translateY(-65%)",opacity:.3},{transform:"translateY(0)",opacity:1}],{duration:190,easing:"ease-out"});
 document.querySelectorAll("[data-profile]").forEach(b=>b.classList.toggle("active",b===btn));
 $("leftTitle").textContent=profile==="sail"?"Segel":"Gas";
