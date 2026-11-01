@@ -1,1 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180"><defs><linearGradient id="steel" x2="1" y2="1"><stop stop-color="#f1f0e9"/><stop offset=".25" stop-color="#7f8a8c"/><stop offset=".48" stop-color="#d4d9d5"/><stop offset=".72" stop-color="#59656a"/><stop offset="1" stop-color="#d1d5d1"/></linearGradient><linearGradient id="wood" x2="0" y2="1"><stop stop-color="#ad713b"/><stop offset=".45" stop-color="#7e451f"/><stop offset="1" stop-color="#b57a42"/></linearGradient></defs><rect width="180" height="180" rx="35" fill="#263c48"/><rect x="7" y="7" width="166" height="166" rx="30" fill="url(#steel)"/><rect x="15" y="15" width="150" height="150" rx="24" fill="url(#wood)"/><g stroke="#542d18" stroke-opacity=".32"><path d="M18 45H162M18 88H162M18 132H162" stroke-width="2"/></g><circle cx="90" cy="90" r="61" fill="#243944" stroke="#c9d0cc" stroke-width="6"/><circle cx="90" cy="90" r="48" fill="none" stroke="#d8a06b" stroke-width="13"/><circle cx="90" cy="90" r="48" fill="none" stroke="#6d381c" stroke-width="2"/><g stroke="url(#steel)" stroke-width="9" stroke-linecap="round"><path d="M90 90V39M90 90L46 115M90 90L134 115"/></g><circle cx="90" cy="90" r="19" fill="url(#steel)" stroke="#6b7271" stroke-width="3"/><path d="M72 92Q90 78 108 92Q90 88 72 98" fill="#24475a"/><g fill="#e8c6a0"><circle cx="90" cy="42" r="3"/><circle cx="132" cy="114" r="3"/><circle cx="48" cy="114" r="3"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="MicroMarine Web: Boot, Steuerrad und Funk auf Teak">
+<defs>
+<linearGradient id="steel" x2="1" y2="1"><stop stop-color="#f5f6f3"/><stop offset=".2" stop-color="#818b91"/><stop offset=".38" stop-color="#e2e6e4"/><stop offset=".68" stop-color="#626d73"/><stop offset=".86" stop-color="#c6cdd0"/><stop offset="1" stop-color="#4c5961"/></linearGradient>
+<linearGradient id="teak" x2=".8" y2="1"><stop stop-color="#9e5729"/><stop offset=".42" stop-color="#713719"/><stop offset=".72" stop-color="#b2733b"/><stop offset="1" stop-color="#6e3519"/></linearGradient>
+<linearGradient id="brass" x2="1" y2="1"><stop stop-color="#f6d891"/><stop offset=".25" stop-color="#9b651e"/><stop offset=".5" stop-color="#e7bd65"/><stop offset=".8" stop-color="#85541b"/><stop offset="1" stop-color="#f2d188"/></linearGradient>
+<linearGradient id="sea" x2="0" y2="1"><stop stop-color="#12618a"/><stop offset="1" stop-color="#061d36"/></linearGradient>
+<linearGradient id="boat" x2=".5" y2="1"><stop stop-color="#fffdf3"/><stop offset=".52" stop-color="#a8b4ba"/><stop offset="1" stop-color="#354f60"/></linearGradient>
+<filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="6" flood-opacity=".5"/></filter>
+<clipPath id="inside"><rect x="26" y="26" width="460" height="460" rx="80"/></clipPath>
+</defs>
+<rect x="3" y="3" width="506" height="506" rx="102" fill="#252b30"/>
+<rect x="9" y="9" width="494" height="494" rx="96" fill="url(#steel)" stroke="#e6e6e0" stroke-width="5"/>
+<rect x="25" y="25" width="462" height="462" rx="82" fill="url(#teak)" stroke="#5e351f" stroke-width="6"/>
+<g clip-path="url(#inside)">
+<g opacity=".28" stroke="#f6bd78" stroke-width="2"><path d="M26 82H486M26 165H486M26 247H486M26 329H486M26 409H486"/><path d="M26 85H486M26 168H486M26 250H486M26 332H486M26 412H486" stroke="#28150b"/></g>
+<g filter="url(#shadow)">
+<circle cx="256" cy="204" r="135" fill="#1e3540" stroke="url(#brass)" stroke-width="13"/>
+<g stroke="url(#brass)" stroke-width="15" stroke-linecap="round"><path d="M256 204V51M256 204L125 129M256 204L387 129M256 204H105M256 204H407"/></g>
+<g fill="#8e4c27" stroke="url(#brass)" stroke-width="5"><ellipse cx="256" cy="55" rx="18" ry="32"/><ellipse cx="125" cy="129" rx="18" ry="28" transform="rotate(-48 125 129)"/><ellipse cx="387" cy="129" rx="18" ry="28" transform="rotate(48 387 129)"/><ellipse cx="106" cy="204" rx="26" ry="15"/><ellipse cx="406" cy="204" rx="26" ry="15"/></g>
+<circle cx="256" cy="204" r="103" fill="none" stroke="#8a451f" stroke-width="23"/>
+<circle cx="256" cy="204" r="103" fill="none" stroke="url(#brass)" stroke-width="6"/>
+<circle cx="256" cy="204" r="55" fill="#102f46" stroke="url(#brass)" stroke-width="10"/>
+<g fill="none" stroke="#dce8ea" stroke-width="10" stroke-linecap="round"><path d="M220 192Q256 158 292 192"/><path d="M232 207Q256 185 280 207"/><path d="M245 222Q256 213 267 222"/></g>
+</g>
+<path d="M0 333Q72 297 132 326T265 328T512 321V512H0Z" fill="url(#sea)"/>
+<g filter="url(#shadow)">
+<path d="M105 316L153 285L198 278L229 239L323 235L353 272L432 280L395 327L308 345L163 348Z" fill="url(#boat)" stroke="#e8e8df" stroke-width="6" stroke-linejoin="round"/>
+<path d="M215 273L242 247H315L338 274Z" fill="#183447" stroke="#f4f2e9" stroke-width="5"/>
+<path d="M113 315Q262 342 418 296L395 327Q263 374 160 346Z" fill="#183e5a"/>
+</g>
+<path d="M-15 348Q80 318 150 353T310 352T530 349M-10 379Q100 344 183 379T375 378T530 379" fill="none" stroke="#8dd0df" stroke-width="8" stroke-linecap="round"/>
+<rect x="50" y="383" width="412" height="85" rx="20" fill="url(#steel)" stroke="#3d4d56" stroke-width="6" filter="url(#shadow)"/>
+<text x="256" y="422" text-anchor="middle" font-family="Georgia,serif" font-size="36" font-weight="bold" font-style="italic" fill="#152b3a">MicroMarine Web</text>
+<text x="256" y="450" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" letter-spacing="5" fill="#263e4a">RC BOAT CONTROL</text>
+</g>
+<g fill="url(#steel)" stroke="#566168" stroke-width="3"><circle cx="66" cy="72" r="10"/><circle cx="446" cy="72" r="10"/><circle cx="66" cy="440" r="10"/><circle cx="446" cy="440" r="10"/></g>
+</svg>
