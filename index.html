@@ -201,6 +201,39 @@ body[data-theme="maritime"] .lever-pad,body[data-theme="maritime"] .wheel-pad{bo
 .throttle-stem{box-shadow:inset 3px 0 4px #fff7,3px 4px 5px #0008}
 .lever-pad:after{content:"VORN  +    ·    –  ACHTERN";display:block;position:absolute;bottom:3%;left:0;width:100%;font-size:clamp(6px,.7vw,10px);font-weight:700;letter-spacing:.06em;color:#e9e0cd;text-shadow:0 1px 2px #000}
 body[data-theme="neutral"] .lever-pad:after{color:#e9f4fa}
+
+/* V0.9 — iPhone landscape: safe corners, independent instrument row, no collisions */
+@media (orientation:landscape) and (max-height:540px){
+ html,body{height:100%;min-height:0;overflow:hidden}
+ .shell,body[data-theme="maritime"] .shell{
+  box-sizing:border-box;width:100%;height:100dvh;max-height:100dvh;margin:0;
+  border:0!important;outline:none!important;border-radius:0!important;
+  padding:calc(8px + env(safe-area-inset-top,0px)) calc(16px + env(safe-area-inset-right,0px)) calc(9px + env(safe-area-inset-bottom,0px)) calc(16px + env(safe-area-inset-left,0px));
+  display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;gap:5px;
+  overflow:hidden;
+ }
+ .top{display:grid;grid-template-columns:minmax(0,1fr) minmax(150px,210px) minmax(0,1fr);align-items:center;gap:8px;min-height:48px}
+ .brand{justify-self:start;max-width:100%;min-width:0}
+ .brand h1{white-space:nowrap;font-size:clamp(12px,2.8vh,19px)}
+ .theme-box{justify-self:center;min-width:0;max-width:100%}
+ .theme-box label{display:flex;align-items:center;gap:4px}
+ .theme-box select{max-width:125px;min-width:0}
+ .fullscreen{justify-self:end;white-space:nowrap}
+ .gauges{position:static!important;top:auto!important;left:auto!important;transform:none!important;grid-column:auto;grid-row:auto;justify-self:center;align-self:center;width:100%;height:auto;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;pointer-events:none}
+ .gauge{width:clamp(42px,11vh,60px);height:clamp(42px,11vh,60px);max-width:none;aspect-ratio:1;justify-self:center}
+ .gauge strong{font-size:clamp(10px,2.7vh,14px)!important}
+ .gauge .rose{display:block;font-size:16px;line-height:1}
+ .gauge small,.gauge .dial,.gauge-arc{display:none!important}
+ .tabs{grid-row:2}
+ .deck{grid-row:3;min-height:0}
+ .info{grid-row:4;min-height:0}
+}
+@media (orientation:landscape) and (max-height:390px){
+ .gauges{display:grid!important}
+ .gauge{width:38px;height:38px}
+ .gauge strong{font-size:10px!important}
+ .top{min-height:40px}
+}
 </style>
 </head>
 <body data-theme="maritime">
