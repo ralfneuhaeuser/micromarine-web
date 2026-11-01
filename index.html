@@ -11,7 +11,7 @@
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" type="image/svg+xml" href="./icon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="./micromarine-apple-touch-icon.png">
-<title>MicroMarine Web · V0.20</title>
+<title>MicroMarine Web · V0.21</title>
 <style>
 *{box-sizing:border-box}html{font-family:system-ui,-apple-system,Segoe UI,sans-serif}body{margin:0;min-height:100vh}button,select{font:inherit;cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #55c9e9;outline-offset:3px}
 body[data-theme="maritime"]{color:#271c15;background:linear-gradient(#a9c9d5 0,#507d92 22%,#173c55 44%,#082537 100%);background-attachment:fixed}
@@ -516,7 +516,7 @@ body[data-theme="walnut"] .wheel-assembly.helm-svg{filter:drop-shadow(0 3px 3px 
  .profile-window{height:34px}
 }
 
-/* V0.20: geometric balance, uniform switch row, walnut palette exchange */
+/* V0.21: geometric balance, uniform switch row, walnut palette exchange */
 body[data-theme="walnut"]{background:#302a27!important}
 body[data-theme="walnut"] .shell{background:#302a27!important}
 body[data-theme="walnut"] .brand,body[data-theme="walnut"] .info{background:#45423c!important;border-color:#817a6d!important;color:#e9dfcb!important}
@@ -539,12 +539,21 @@ body[data-theme="walnut"] .brand h1{color:#f0e8d9!important}
  .deck>.stick-panel:first-child .throttle-readout{width:calc(100% - 10px)!important}
  .switches>.switch,.switches>.emergency{height:89px!important;min-height:89px!important}
 }
+
+/* V0.21 — rotating compass, aligned controls, full-length Bakelite pointer */
+.gauge.compass .rose,.gauge .rose{
+ transform:translate(-50%,-50%) rotate(var(--compass-angle,0deg))!important;
+ transition:transform .12s linear;
+}
+.rotary-pointer{inset:2px 4px!important;clip-path:polygon(50% 0,83% 43%,70% 100%,30% 100%,17% 43%)!important;transform-origin:50% 50%!important}
+.switches>.switch{transform:translateY(-6px)!important}
+.switches>.switch>span:last-child{transform:translateY(6px)!important}
 </style>
 </head>
 <body data-theme="walnut">
 <main class="shell">
 <header class="top">
-<div class="brand"><h1>MicroMarine Web</h1><small>RC BOAT CONTROL · V0.20</small></div>
+<div class="brand"><h1>MicroMarine Web</h1><small>RC BOAT CONTROL · V0.21</small></div>
 <div class="theme-box"><label for="theme">Design <select id="theme"><option value="maritime">Maritim · Teak</option><option value="neutral">Neutral · Modern</option><option value="walnut" selected>Walnut Classic</option></select></label></div>
 <button class="fullscreen" id="fullscreen" type="button" title="Vollbild">⛶ Vollbild</button>
 </header><div class="profile-legacy" aria-hidden="true"><button data-profile="sail" class="active" type="button">Segel</button><button data-profile="single" type="button">Motor</button><button data-profile="twin" type="button">Twin</button></div>
@@ -617,7 +626,7 @@ $("outputs").textContent=profile==="sail"
 function compassUpdate(){
 const angle=((heading%360)+360)%360;
 $("headingText").textContent=String(Math.round(angle)%360).padStart(3,"0")+"°";
-$("compassRose").style.transform="translate(-50%,-50%) rotate("+(-angle)+"deg)";
+$("compassRose").style.setProperty("--compass-angle",(-angle)+"deg");
 }
 function axis(side){return side==="left"?"vertical":"horizontal"}
 function stick(id,side){
