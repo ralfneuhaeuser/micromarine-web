@@ -11,7 +11,7 @@
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" type="image/svg+xml" href="./icon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="./micromarine-apple-touch-icon.png">
-<title>MicroMarine Web · V0.11</title>
+<title>MicroMarine Web · V0.12</title>
 <style>
 *{box-sizing:border-box}html{font-family:system-ui,-apple-system,Segoe UI,sans-serif}body{margin:0;min-height:100vh}button,select{font:inherit;cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #55c9e9;outline-offset:3px}
 body[data-theme="maritime"]{color:#271c15;background:linear-gradient(#a9c9d5 0,#507d92 22%,#173c55 44%,#082537 100%);background-attachment:fixed}
@@ -309,13 +309,27 @@ body[data-theme="walnut"] .warning{background:#22282b}
  .deck>.stick-panel:first-child .pad{min-height:75px;width:min(85%,21dvh);height:21dvh}
  .deck>.switch-panel .gauge{width:min(100%,15vh)}
 }
+
+/* V0.12 — walnut default, open spoke wheel, true semicircular instrument arcs */
+body[data-theme="walnut"] .wheel-pad{background:#252c30!important;border-color:#817969!important;box-shadow:inset 0 0 0 2px #3a4144!important}
+body[data-theme="walnut"] .wheel-rim{background:conic-gradient(from 30deg,#79604a,#c0a278,#65513e,#c0a278,#79604a) border-box!important;box-shadow:inset 0 0 0 2px #9b8d76,0 0 0 2px #847665!important}
+body[data-theme="walnut"] .wheel-spoke{width:49%;background:linear-gradient(#b9b7ae,#6d797c 43%,#e5e2d8 60%,#4a535a)}
+body[data-theme="walnut"] .wheel-rim:after{border-color:#9c8b7066}
+body[data-theme="walnut"] .wheel-hub{background:radial-gradient(circle at 30% 25%,#e5dbc9,#a59c8d 44%,#59636c 80%)}
+.gauge .dial{width:76%;height:auto;aspect-ratio:2/1;border-radius:100% 100% 0 0 / 200% 200% 0 0;box-sizing:border-box}
+@media(orientation:landscape) and (max-height:540px){
+ .deck>.switch-panel .gauge .dial{display:block!important;width:72%;height:auto!important;aspect-ratio:2/1;border-radius:100% 100% 0 0 / 200% 200% 0 0;margin-top:2px}
+}
+@media(orientation:landscape) and (max-height:390px){
+ .deck>.switch-panel .gauge .dial{display:none!important}
+}
 </style>
 </head>
-<body data-theme="maritime">
+<body data-theme="walnut">
 <main class="shell">
 <header class="top">
-<div class="brand"><h1>⚓ MicroMarine Web</h1><small>RC BOAT CONTROL · V0.11</small></div>
-<div class="theme-box"><label for="theme">Design <select id="theme"><option value="maritime">Maritim · Teak</option><option value="neutral">Neutral · Modern</option><option value="walnut">Walnut Classic</option></select></label></div>
+<div class="brand"><h1>⚓ MicroMarine Web</h1><small>RC BOAT CONTROL · V0.12</small></div>
+<div class="theme-box"><label for="theme">Design <select id="theme"><option value="maritime">Maritim · Teak</option><option value="neutral">Neutral · Modern</option><option value="walnut" selected>Walnut Classic</option></select></label></div>
 <button class="fullscreen" id="fullscreen" type="button" title="Vollbild">⛶ Vollbild</button>
 </header>
 <nav class="tabs" aria-label="Bootsprofil">
@@ -373,10 +387,10 @@ const ml=profile==="twin"?clamp(throttle+rudder,-100,100):profile==="single"?thr
 const mr=profile==="twin"?clamp(throttle-rudder,-100,100):null;
 $("leftValue").textContent=profile==="sail"?"Schot: "+sail+" %":"Gas: "+throttle+" %";
 $("rightValue").textContent=profile==="twin"?"Differenzial: "+rudder+" %":"Ruder: "+rudder+" %";
-const gaugeValue=profile==="sail"?sail:Math.abs(throttle);
+const gaugeValue=profile==="sail"?sail:throttle;
 $("thirdGaugeTitle").textContent=profile==="sail"?"Segelstellung":"Motorleistung";
 $("power").textContent=gaugeValue+" %";
-$("powerNeedle").style.transform="rotate("+(-85+gaugeValue*1.7)+"deg)";
+$("powerNeedle").style.transform="rotate("+(profile==="sail"?-85+gaugeValue*1.7:gaugeValue*.85)+"deg)";
 $("outputs").textContent=profile==="sail"
 ?"Ruder "+rudder+" % · Schot "+sail+" % · Kein Motor"
 :profile==="single"
