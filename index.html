@@ -234,6 +234,38 @@ body[data-theme="neutral"] .lever-pad:after{color:#e9f4fa}
  .gauge strong{font-size:10px!important}
  .top{min-height:40px}
 }
+
+/* V0.10 — dedicated central instrument console on landscape phones */
+@media (orientation:landscape) and (max-height:540px){
+ .shell,body[data-theme="maritime"] .shell{
+  grid-template-rows:auto auto minmax(0,1fr) auto;
+ }
+ .deck{grid-template-columns:minmax(0,1fr) minmax(255px,.94fr) minmax(0,1fr);gap:8px;align-items:stretch}
+ .switch-panel{display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;gap:5px;padding:8px 9px 7px;min-width:0;overflow:hidden}
+ .switch-panel .gauges{position:relative!important;inset:auto!important;transform:none!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;width:100%;height:auto;max-width:none;justify-self:auto;align-self:auto;flex:0 0 auto;pointer-events:none}
+ .switch-panel .gauge{width:min(100%,clamp(65px,17vh,96px));height:auto;aspect-ratio:1;max-width:96px;justify-self:center;border-width:4px}
+ .switch-panel .gauge strong{font-size:clamp(11px,2.8vh,16px)!important}
+ .switch-panel .gauge .rose{display:block;font-size:clamp(16px,4vh,26px);margin-top:0}
+ .switch-panel .gauge .dial{display:block!important;width:72%;height:22%;border-width:4px;margin-top:3px}
+ .switch-panel .gauge small,.switch-panel .gauge-arc{display:none!important}
+ .switch-panel h2{font-size:clamp(12px,2.6vh,17px);margin:0}
+ .switches{flex:0 0 auto;justify-content:space-evenly;gap:4px}
+ .switch{font-size:clamp(9px,1.9vh,12px);gap:3px}
+ .lamp{height:14px;width:14px}
+ .lever{height:27px;width:13px}
+ .stop{flex:0 0 auto;margin-top:2px;padding:7px 4px;font-size:clamp(12px,2.8vh,17px)}
+ .pad{height:min(51dvh,calc(100dvh - 135px));width:min(51dvh,calc(100dvh - 135px));min-height:68px;min-width:68px}
+}
+@media (orientation:landscape) and (max-height:390px){
+ .switch-panel{gap:2px;padding:4px 6px}
+ .switch-panel .gauges{display:grid!important;gap:3px}
+ .switch-panel .gauge{width:min(100%,clamp(45px,14vh,62px))}
+ .switch-panel .gauge .dial{display:none!important}
+ .switch-panel .gauge strong{font-size:10px!important}
+ .switch-panel h2{font-size:11px}
+ .lever{height:20px}
+ .stop{padding:4px 3px}
+}
 </style>
 </head>
 <body data-theme="maritime">
@@ -248,14 +280,14 @@ body[data-theme="neutral"] .lever-pad:after{color:#e9f4fa}
 <button type="button" data-profile="single">🚤 Motorboot</button>
 <button type="button" data-profile="twin">⚓ Zweimotorig</button>
 </nav>
-<section class="gauges" aria-label="Simulierte Telemetrie">
+
+<section class="deck" aria-label="Steuerung">
+<div class="stick-panel"><h2 id="leftTitle">Segel</h2><div class="pad lever-pad" id="leftPad" aria-label="Vertikaler Gas- oder Segelhebel" role="slider" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0" tabindex="0"><div class="lever-track"></div><div class="throttle-handle"><span class="throttle-grip"></span><span class="throttle-stem"></span><span class="throttle-base"></span></div></div><div class="value" id="leftValue">0 %</div></div>
+<div class="switch-panel"><section class="gauges" aria-label="Simulierte Telemetrie">
 <div class="gauge"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcBattery" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcBattery" startOffset="50%" text-anchor="middle">Akku · Spannung</textPath></text></svg><span class="sr-only">Akku · Spannung</span><div class="dial"><div class="needle" style="transform:rotate(45deg)"></div></div><strong id="battery">4,05 V</strong><small>DEMO</small></div>
 <div class="gauge compass"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcCompass" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcCompass" startOffset="50%" text-anchor="middle">Kompass</textPath></text></svg><span class="sr-only">Kompass</span><div class="rose" id="compassRose">✦</div><strong id="headingText">000°</strong><small>SIMULIERT</small></div>
 <div class="gauge" id="thirdGauge"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcPower" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcPower" startOffset="50%" text-anchor="middle"><tspan id="thirdGaugeTitle">Motorleistung</tspan></textPath></text></svg><span class="sr-only">Motorleistung</span><div class="dial"><div class="needle" id="powerNeedle" style="transform:rotate(-85deg)"></div></div><strong id="power">0 %</strong><small>SIMULIERT</small></div>
-</section>
-<section class="deck" aria-label="Steuerung">
-<div class="stick-panel"><h2 id="leftTitle">Segel</h2><div class="pad lever-pad" id="leftPad" aria-label="Vertikaler Gas- oder Segelhebel" role="slider" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0" tabindex="0"><div class="lever-track"></div><div class="throttle-handle"><span class="throttle-grip"></span><span class="throttle-stem"></span><span class="throttle-base"></span></div></div><div class="value" id="leftValue">0 %</div></div>
-<div class="switch-panel"><h2>Licht &amp; Sicherheit</h2><div class="switches">
+</section><h2>Licht &amp; Sicherheit</h2><div class="switches">
 <label class="switch"><input type="checkbox" id="lights"><span class="lamp"></span><span class="lever"></span><span>Fahrlicht</span></label>
 <label class="switch"><input type="checkbox" id="decklight"><span class="lamp"></span><span class="lever"></span><span>Decklicht</span></label>
 <label class="switch"><input type="checkbox" id="signal"><span class="lamp"></span><span class="lever"></span><span>Signal</span></label>
