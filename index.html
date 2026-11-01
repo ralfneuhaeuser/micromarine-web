@@ -11,7 +11,7 @@
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" type="image/svg+xml" href="./icon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="./micromarine-apple-touch-icon.png">
-<title>MicroMarine Web · V0.22</title>
+<title>MicroMarine Web · V0.23</title>
 <style>
 *{box-sizing:border-box}html{font-family:system-ui,-apple-system,Segoe UI,sans-serif}body{margin:0;min-height:100vh}button,select{font:inherit;cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #55c9e9;outline-offset:3px}
 body[data-theme="maritime"]{color:#271c15;background:linear-gradient(#a9c9d5 0,#507d92 22%,#173c55 44%,#082537 100%);background-attachment:fixed}
@@ -516,7 +516,7 @@ body[data-theme="walnut"] .wheel-assembly.helm-svg{filter:drop-shadow(0 3px 3px 
  .profile-window{height:34px}
 }
 
-/* V0.22: geometric balance, uniform switch row, walnut palette exchange */
+/* V0.23: geometric balance, uniform switch row, walnut palette exchange */
 body[data-theme="walnut"]{background:#302a27!important}
 body[data-theme="walnut"] .shell{background:#302a27!important}
 body[data-theme="walnut"] .brand,body[data-theme="walnut"] .info{background:#45423c!important;border-color:#817a6d!important;color:#e9dfcb!important}
@@ -540,7 +540,7 @@ body[data-theme="walnut"] .brand h1{color:#f0e8d9!important}
  .switches>.switch,.switches>.emergency{height:89px!important;min-height:89px!important}
 }
 
-/* V0.22 — rotating compass, aligned controls, full-length Bakelite pointer */
+/* V0.23 — rotating compass, aligned controls, full-length Bakelite pointer */
 .gauge.compass .rose,.gauge .rose{
  transform:translate(-50%,-50%) rotate(var(--compass-angle,0deg))!important;
  transition:transform .12s linear;
@@ -549,7 +549,7 @@ body[data-theme="walnut"] .brand h1{color:#f0e8d9!important}
 .switches>.switch{transform:translateY(-6px)!important}
 .switches>.switch>span:last-child{transform:translateY(6px)!important}
 
-/* V0.22 — precise baseline, taller/slimmer selector, continuous compass heading */
+/* V0.23 — precise baseline, taller/slimmer selector, continuous compass heading */
 .rotary-pointer{inset:0 8px!important;clip-path:polygon(50% 0,74% 42%,64% 100%,36% 100%,26% 42%)!important}
 .switches>.switch,.switches>.emergency{position:relative!important;transform:none!important;justify-content:flex-start!important;align-items:center!important;gap:0!important}
 .switches>.switch>.lamp{position:absolute!important;top:7px!important;left:50%!important;transform:translateX(-50%)!important;margin:0!important}
@@ -557,12 +557,23 @@ body[data-theme="walnut"] .brand h1{color:#f0e8d9!important}
 .switches>.emergency>span{position:absolute!important;top:0!important;left:50%!important;transform:translateX(-50%)!important;margin:0!important}
 .switches>.switch>span:last-child,.switches>.emergency>small{position:absolute!important;bottom:0!important;left:0!important;transform:none!important;margin:0!important;height:19px!important;line-height:19px!important}
 .gauge.compass .rose{transition:transform .1s linear!important}
+
+/* V0.23: shared switch alignment; preserve the toggle's physical tilt */
+.switches>.switch,.switches>.emergency{height:86px!important;min-height:86px!important;position:relative!important}
+.switches>.switch>.lamp{top:0!important;left:50%!important;transform:translateX(-50%)!important;margin:0!important}
+.switches>.switch>.lever{top:25px!important;left:50%!important;height:34px!important;transform:translateX(-50%) rotate(17deg)!important;transform-origin:50% 50%!important;transition:transform .15s ease!important;margin:0!important}
+.switches>.switch>input:checked~.lever{transform:translateX(-50%) rotate(-17deg)!important}
+.switches>.emergency>span{top:0!important}
+.switches>.switch>span:last-child,.switches>.emergency>small{bottom:0!important;top:auto!important;height:18px!important;line-height:18px!important}
+@media(orientation:landscape) and (max-height:540px){
+ .switches>.switch,.switches>.emergency{height:86px!important;min-height:86px!important}
+}
 </style>
 </head>
 <body data-theme="walnut">
 <main class="shell">
 <header class="top">
-<div class="brand"><h1>MicroMarine Web</h1><small>RC BOAT CONTROL · V0.22</small></div>
+<div class="brand"><h1>MicroMarine Web</h1><small>RC BOAT CONTROL · V0.23</small></div>
 <div class="theme-box"><label for="theme">Design <select id="theme"><option value="maritime">Maritim · Teak</option><option value="neutral">Neutral · Modern</option><option value="walnut" selected>Walnut Classic</option></select></label></div>
 <button class="fullscreen" id="fullscreen" type="button" title="Vollbild">⛶ Vollbild</button>
 </header><div class="profile-legacy" aria-hidden="true"><button data-profile="sail" class="active" type="button">Segel</button><button data-profile="single" type="button">Motor</button><button data-profile="twin" type="button">Twin</button></div>
