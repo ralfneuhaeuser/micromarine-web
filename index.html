@@ -11,7 +11,7 @@
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" type="image/svg+xml" href="./icon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="./micromarine-apple-touch-icon.png">
-<title>MicroMarine Web · V0.19</title>
+<title>MicroMarine Web · V0.20</title>
 <style>
 *{box-sizing:border-box}html{font-family:system-ui,-apple-system,Segoe UI,sans-serif}body{margin:0;min-height:100vh}button,select{font:inherit;cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #55c9e9;outline-offset:3px}
 body[data-theme="maritime"]{color:#271c15;background:linear-gradient(#a9c9d5 0,#507d92 22%,#173c55 44%,#082537 100%);background-attachment:fixed}
@@ -515,19 +515,43 @@ body[data-theme="walnut"] .wheel-assembly.helm-svg{filter:drop-shadow(0 3px 3px 
  .profile-selector .rotary-knob{width:41px;height:41px}
  .profile-window{height:34px}
 }
+
+/* V0.20: geometric balance, uniform switch row, walnut palette exchange */
+body[data-theme="walnut"]{background:#302a27!important}
+body[data-theme="walnut"] .shell{background:#302a27!important}
+body[data-theme="walnut"] .brand,body[data-theme="walnut"] .info{background:#45423c!important;border-color:#817a6d!important;color:#e9dfcb!important}
+body[data-theme="walnut"] .brand h1{color:#f0e8d9!important}
+.throttle-readout{box-sizing:border-box!important;width:100%!important;max-width:100%!important;min-height:32px!important;margin:3px auto 0!important;display:flex!important;align-items:center;justify-content:center;font-size:clamp(11px,2.2vh,16px)!important;white-space:nowrap}
+.switches{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;align-items:end!important;gap:4px!important}
+.switches>.switch,.switches>.emergency{box-sizing:border-box!important;min-height:102px!important;height:102px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-end!important;gap:5px!important;padding:0!important}
+.switches>.switch>.lamp{margin-top:auto!important}
+.switches>.switch>.lever{margin-bottom:0!important}
+.switches>.switch>span:last-child,.switches>.emergency>small{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;height:19px!important;min-height:19px!important;margin:0!important;font-size:clamp(10px,1.8vh,13px)!important;font-weight:700!important;line-height:1!important}
+.switches>.emergency>span{margin-top:auto!important}
+.gauge.compass .rose,.gauge .rose{left:50%!important;top:50%!important;width:72%!important;height:72%!important;transform:translate(-50%,-50%)!important;transform-origin:center center!important}
+.gauge.compass .rose svg{display:block;width:100%;height:100%}
+.gauge.compass strong{z-index:3!important}
+@media(orientation:landscape) and (max-height:540px){
+ .deck>.switch-panel{justify-content:flex-start!important}
+ .deck>.switch-panel .gauges{margin-top:7px!important;gap:7px!important;align-items:center!important}
+ .deck>.switch-panel .gauge{width:min(100%,clamp(90px,25vh,149px))!important;max-width:149px!important}
+ .deck>.switch-panel .switches{margin-top:auto!important;margin-bottom:5px!important}
+ .deck>.stick-panel:first-child .throttle-readout{width:calc(100% - 10px)!important}
+ .switches>.switch,.switches>.emergency{height:89px!important;min-height:89px!important}
+}
 </style>
 </head>
 <body data-theme="walnut">
 <main class="shell">
 <header class="top">
-<div class="brand"><h1>MicroMarine Web</h1><small>RC BOAT CONTROL · V0.19</small></div>
+<div class="brand"><h1>MicroMarine Web</h1><small>RC BOAT CONTROL · V0.20</small></div>
 <div class="theme-box"><label for="theme">Design <select id="theme"><option value="maritime">Maritim · Teak</option><option value="neutral">Neutral · Modern</option><option value="walnut" selected>Walnut Classic</option></select></label></div>
 <button class="fullscreen" id="fullscreen" type="button" title="Vollbild">⛶ Vollbild</button>
 </header><div class="profile-legacy" aria-hidden="true"><button data-profile="sail" class="active" type="button">Segel</button><button data-profile="single" type="button">Motor</button><button data-profile="twin" type="button">Twin</button></div>
 
 
 <section class="deck" aria-label="Steuerung">
-<div class="stick-panel"><h2 id="leftTitle" class="visually-hidden">Segel</h2><div class="pad lever-pad" id="leftPad" aria-label="Vertikaler Gas- oder Segelhebel" role="slider" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0" tabindex="0"><div class="lever-track"></div><div class="throttle-handle"><span class="throttle-grip"></span><span class="throttle-stem"></span><span class="throttle-base"></span></div></div><div class="value" id="leftValue">0 %</div></div>
+<div class="stick-panel"><h2 id="leftTitle" class="visually-hidden">Segel</h2><div class="pad lever-pad" id="leftPad" aria-label="Vertikaler Gas- oder Segelhebel" role="slider" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0" tabindex="0"><div class="lever-track"></div><div class="throttle-handle"><span class="throttle-grip"></span><span class="throttle-stem"></span><span class="throttle-base"></span></div></div><div class="value odometer throttle-readout" id="leftValue">Schot: 050 %</div></div>
 <div class="switch-panel"><div class="profile-selector"><button type="button" class="rotary-knob" id="rotaryKnob" aria-label="Nächsten Bootstyp wählen" title="Bootstyp wechseln"><span class="rotary-pointer"></span></button><div class="profile-window" id="profileWindow" role="status" aria-live="polite"><span id="profileDrum">SEGELBOOT</span></div></div><section class="gauges" aria-label="Simulierte Telemetrie">
 <div class="gauge"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcBattery" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcBattery" startOffset="50%" text-anchor="middle">Akku · Spannung</textPath></text></svg><span class="sr-only">Akku · Spannung</span><svg class="dial dial-svg" viewBox="0 0 200 200" aria-hidden="true"><path d="M 33.00 110.00 A 67 67 0 0 1 45.80 70.62" fill="none" stroke="#c65d52" stroke-width="10" stroke-linecap="butt"/><path d="M 45.80 70.62 A 67 67 0 0 1 79.30 46.28" fill="none" stroke="#c8a85d" stroke-width="10" stroke-linecap="butt"/><path d="M 79.30 46.28 A 67 67 0 0 1 167.00 110.00" fill="none" stroke="#4b9b7d" stroke-width="10" stroke-linecap="butt"/><g class="needle" style="transform:rotate(45deg)"><path d="M 100 110 L 97 66 Q 100 55 103 66 L 103 110 Z" fill="#e7e2d8" stroke="#33434a" stroke-width="2"/><circle cx="100" cy="110" r="8" fill="#c7bba8" stroke="#344148" stroke-width="3"/></g></svg><strong id="battery">4,05 V</strong><small>DEMO</small></div>
 <div class="gauge compass"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcCompass" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcCompass" startOffset="50%" text-anchor="middle">Kompass</textPath></text></svg><span class="sr-only">Kompass</span><div class="rose" id="compassRose"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="#d9d3be" stroke="#82939a" stroke-width=".7"><path d="M50 5 57 43 50 50 43 43Z"/><path d="M95 50 57 57 50 50 57 43Z"/><path d="M50 95 43 57 50 50 57 57Z"/><path d="M5 50 43 43 50 50 43 57Z"/></g><g font-size="13" font-family="Arial,sans-serif" font-weight="700" fill="#f4eee0" text-anchor="middle"><text x="50" y="13">N</text><text x="89" y="54">O</text><text x="50" y="95">S</text><text x="11" y="54">W</text></g></svg></div><strong id="headingText">000°</strong><small>SIMULIERT</small></div>
@@ -574,7 +598,7 @@ const throttle=Math.round(-left.y*100),rudder=Math.round(right.x*100);
 const sail=Math.round((1+left.y)*50); // top = 0% (hauled in), bottom = 100% (eased out)
 const ml=profile==="twin"?clamp(throttle+rudder,-100,100):profile==="single"?throttle:null;
 const mr=profile==="twin"?clamp(throttle-rudder,-100,100):null;
-$("leftValue").textContent=profile==="sail"?"Schot: "+sail+" %":"Gas: "+throttle+" %";
+$("leftValue").textContent=profile==="sail"?"SCHOT "+String(sail).padStart(3,"0")+" %":"GAS "+(throttle<0?"−":"+")+String(Math.abs(throttle)).padStart(3,"0")+" %";
 $("rightValue").textContent=(profile==="twin"?"DIFF ":"RUDER ")+(rudder<0?"−":"+")+String(Math.abs(rudder)).padStart(3,"0")+" %";
 const gaugeValue=profile==="sail"?sail:throttle;
 const signedPower=profile==="sail"?String(sail):(throttle<0?"−"+Math.abs(throttle):String(throttle));
