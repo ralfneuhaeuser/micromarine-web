@@ -11,7 +11,7 @@
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" type="image/svg+xml" href="./icon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="./micromarine-apple-touch-icon.png">
-<title>MicroMarine Web · V0.8</title>
+<title>MicroMarine Web · V0.11</title>
 <style>
 *{box-sizing:border-box}html{font-family:system-ui,-apple-system,Segoe UI,sans-serif}body{margin:0;min-height:100vh}button,select{font:inherit;cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #55c9e9;outline-offset:3px}
 body[data-theme="maritime"]{color:#271c15;background:linear-gradient(#a9c9d5 0,#507d92 22%,#173c55 44%,#082537 100%);background-attachment:fixed}
@@ -266,13 +266,56 @@ body[data-theme="neutral"] .lever-pad:after{color:#e9f4fa}
  .lever{height:20px}
  .stop{padding:4px 3px}
 }
+
+/* V0.11: Walnut Classic — matte surfaces, restrained yacht detailing */
+body[data-theme="walnut"]{color:#eae2d4;background:#171b1e}
+body[data-theme="walnut"] .shell{background:linear-gradient(145deg,#443328,#30251f 55%,#211d1b);border:2px solid #817465;outline:none;box-shadow:inset 0 0 0 2px #6d5946,0 10px 28px #0005}
+body[data-theme="walnut"] .brand,body[data-theme="walnut"] .stick-panel,body[data-theme="walnut"] .switch-panel{background:#252c30;border:1px solid #8b806e;box-shadow:none;color:#eee5d7}
+body[data-theme="walnut"] .brand{background:#352e2a;border-radius:18px}
+body[data-theme="walnut"] .brand h1{color:#e9dfcb}
+body[data-theme="walnut"] .tabs button{background:#343b3e;border:1px solid #817969;color:#eee5d7;text-shadow:none;box-shadow:none}
+body[data-theme="walnut"] .tabs button.active{background:#365e67;border-color:#b4a48b;color:white;box-shadow:inset 0 0 0 1px #7d9ca0}
+body[data-theme="walnut"] .theme-box{background:#252c30;border:1px solid #807565;box-shadow:none;color:#eee5d7}
+body[data-theme="walnut"] .theme-box select{background:#d5c9b6;color:#222a2c}
+body[data-theme="walnut"] .fullscreen{background:#30383b;border:1px solid #807565;box-shadow:none;color:#eee5d7}
+body[data-theme="walnut"] .gauge{background:#182329;border:2px solid #b4a48b;color:#f0e8d9;box-shadow:none}
+body[data-theme="walnut"] .gauge.compass{background:#173540}
+body[data-theme="walnut"] .gauge:before{border-color:#4e656b}
+body[data-theme="walnut"] .gauge:after{display:none}
+body[data-theme="walnut"] .gauge-arc text{fill:#e6dac3;stroke:none}
+body[data-theme="walnut"] .pad{border:2px solid #a79b88;box-shadow:inset 0 0 0 2px #333e43;background:#182329}
+body[data-theme="walnut"] .wheel-rim{box-shadow:none}
+body[data-theme="walnut"] .stop{background:#a5322f;border:2px solid #e2b1a6;box-shadow:none;text-shadow:none}
+body[data-theme="walnut"] .info{background:#302a27;border:1px solid #71685e;color:#e9dfcb}
+body[data-theme="walnut"] .warning{background:#22282b}
+@media(orientation:landscape) and (max-height:540px){
+ /* Two visual assemblies: unified instruments/throttle and separate helm */
+ .deck{grid-template-columns:minmax(115px,.30fr) minmax(260px,.70fr) minmax(230px,.85fr);gap:0;position:relative;isolation:isolate}
+ .deck:before{content:"";position:absolute;z-index:-1;inset:0 auto 0 0;width:calc((100% - 10px)*.54);border:2px solid #a79b88;border-radius:22px;background:#252c30;pointer-events:none}
+ .deck>.stick-panel:first-child{border:0!important;border-radius:20px 0 0 20px;background:transparent!important;box-shadow:none!important;padding:5px 3px 5px 8px}
+ .deck>.switch-panel{border:0!important;border-radius:0 20px 20px 0;background:transparent!important;box-shadow:none!important;padding:6px 10px}
+ .deck>.stick-panel:last-child{margin-left:10px;border-radius:22px}
+ .deck>.stick-panel:first-child .pad{width:min(90%,23dvh);height:min(90%,23dvh);border-radius:25px;aspect-ratio:auto;min-height:115px}
+ .deck>.stick-panel:first-child .lever-pad{background:#182329!important}
+ .deck>.stick-panel:first-child .lever-track{width:30%;height:82%}
+ .deck>.stick-panel:last-child .pad{width:min(48dvh,calc(100dvh - 145px));height:min(48dvh,calc(100dvh - 145px))}
+ .deck>.switch-panel .gauges{gap:8px}
+ .deck>.switch-panel .gauge{width:min(100%,clamp(67px,18vh,105px));max-width:105px}
+ .deck>.switch-panel .gauge strong{font-size:clamp(11px,3vh,17px)!important}
+ .shell,body[data-theme="walnut"] .shell{padding-left:calc(22px + env(safe-area-inset-left,0px));padding-right:calc(22px + env(safe-area-inset-right,0px));padding-top:calc(9px + env(safe-area-inset-top,0px));padding-bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+ body[data-theme="walnut"] .deck:before{background:#252c30;border-color:#8b806e}
+}
+@media(orientation:landscape) and (max-height:390px){
+ .deck>.stick-panel:first-child .pad{min-height:75px;width:min(85%,21dvh);height:21dvh}
+ .deck>.switch-panel .gauge{width:min(100%,15vh)}
+}
 </style>
 </head>
 <body data-theme="maritime">
 <main class="shell">
 <header class="top">
-<div class="brand"><h1>⚓ MicroMarine Web</h1><small>RC BOAT CONTROL · V0.2</small></div>
-<div class="theme-box"><label for="theme">Design <select id="theme"><option value="maritime">Maritim · Teak</option><option value="neutral">Neutral · Modern</option></select></label></div>
+<div class="brand"><h1>⚓ MicroMarine Web</h1><small>RC BOAT CONTROL · V0.11</small></div>
+<div class="theme-box"><label for="theme">Design <select id="theme"><option value="maritime">Maritim · Teak</option><option value="neutral">Neutral · Modern</option><option value="walnut">Walnut Classic</option></select></label></div>
 <button class="fullscreen" id="fullscreen" type="button" title="Vollbild">⛶ Vollbild</button>
 </header>
 <nav class="tabs" aria-label="Bootsprofil">
@@ -310,7 +353,7 @@ const standalone=()=>window.matchMedia("(display-mode: standalone)").matches||na
 function fsLabel(){fs.textContent=standalone()?"✓ App-Modus":document.fullscreenElement?"⤢ Beenden":"⛶ Vollbild"}
 fs.addEventListener("click",async()=>{if(standalone()){alert("MicroMarine läuft bereits im Home-Bildschirm-Modus.");return}if(document.fullscreenElement){try{await document.exitFullscreen()}catch(e){};fsLabel();return}if(document.documentElement.requestFullscreen){try{await document.documentElement.requestFullscreen();fsLabel();return}catch(e){}}alert("Auf dem iPhone: Safari → Teilen → Zum Home-Bildschirm. Danach MicroMarine über das neue Symbol öffnen, um die Safari-Leisten auszublenden.")});
 document.addEventListener("fullscreenchange",fsLabel);fsLabel();
-try{const saved=localStorage.getItem("micromarine-theme");if(saved==="neutral"||saved==="maritime")theme.value=saved}catch(e){}
+try{const saved=localStorage.getItem("micromarine-theme");if(saved==="neutral"||saved==="maritime"||saved==="walnut")theme.value=saved}catch(e){}
 document.body.dataset.theme=theme.value;
 theme.addEventListener("change",()=>{document.body.dataset.theme=theme.value;try{localStorage.setItem("micromarine-theme",theme.value)}catch(e){}});
 function paint(el,v){
