@@ -1,0 +1,8 @@
+/* Latest cockpit component geometry. Keep this after the legacy compatibility sheet. */
+/* V0.27: constant-size cylindrical crossbar and slotted throttle gate */
+.throttle-handle{height:46%!important;transform-origin:50% 80%!important;transition:transform .09s ease-out!important;filter:drop-shadow(2px 3px 2px #0008)!important}
+.throttle-grip{height:17%!important;top:7%!important;width:150%!important;border-radius:4px!important;background:linear-gradient(180deg,#768187 0%,#e1e6e5 24%,#aab4b6 45%,#56636b 75%,#222c33 100%)!important}
+.throttle-stem{top:23%!important;height:75%!important;width:16%!important;border-radius:3px!important}
+.throttle-base{display:none!important}
+.lever-track{width:22%!important;border-radius:18px!important;background:linear-gradient(90deg,#737b7d 0%,#1b252a 13%,#060b0e 36%,#0a1014 65%,#364146 88%,#9ca3a1 100%)!important;box-shadow:inset 0 1px 8px #000c,0 0 0 2px #8b918e!important}
+.lever-track:before{display:none!important}
