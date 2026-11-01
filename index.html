@@ -11,7 +11,7 @@
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" type="image/svg+xml" href="./icon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="./micromarine-apple-touch-icon.png">
-<title>MicroMarine Web · V0.16</title>
+<title>MicroMarine Web · V0.17</title>
 <style>
 *{box-sizing:border-box}html{font-family:system-ui,-apple-system,Segoe UI,sans-serif}body{margin:0;min-height:100vh}button,select{font:inherit;cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #55c9e9;outline-offset:3px}
 body[data-theme="maritime"]{color:#271c15;background:linear-gradient(#a9c9d5 0,#507d92 22%,#173c55 44%,#082537 100%);background-attachment:fixed}
@@ -324,7 +324,7 @@ body[data-theme="walnut"] .wheel-hub{background:radial-gradient(circle at 30% 25
  .deck>.switch-panel .gauge .dial{display:none!important}
 }
 
-/* V0.16 — actual straight needles, separate from the semicircular colored scales */
+/* V0.17 — actual straight needles, separate from the semicircular colored scales */
 .gauge .dial{position:relative;overflow:visible}
 .gauge .dial .needle{
  display:block!important;position:absolute!important;
@@ -344,7 +344,7 @@ body[data-theme="walnut"] .wheel-hub{background:radial-gradient(circle at 30% 25
  .deck>.switch-panel .gauge .dial .needle:after{width:7px;height:7px;bottom:-3px}
 }
 
-/* V0.16 — centered SVG instrument geometry: shared center and true circular arcs */
+/* V0.17 — centered SVG instrument geometry: shared center and true circular arcs */
 .gauge{position:relative}
 .gauge .dial-svg,.deck>.switch-panel .gauge .dial-svg{
  display:block!important;position:absolute!important;inset:0!important;
@@ -363,7 +363,7 @@ body[data-theme="walnut"] .wheel-hub{background:radial-gradient(circle at 30% 25
  .deck>.switch-panel .gauge .dial-svg{display:block!important}
 }
 
-/* V0.16: open ship's wheel, no opaque disc behind the spokes */
+/* V0.17: open ship's wheel, no opaque disc behind the spokes */
 .wheel-rim,body[data-theme="walnut"] .wheel-rim{
  background:conic-gradient(from 30deg,#79604a,#c0a278,#65513e,#c0a278,#79604a) border-box!important;
  border:clamp(9px,2.1vw,19px) solid transparent!important;
@@ -374,7 +374,7 @@ body[data-theme="walnut"] .wheel-pad{
  box-shadow:inset 0 0 0 2px #3a4144!important;
 }
 
-/* V0.16 — shared, precisely centered instrument and helm geometry */
+/* V0.17 — shared, precisely centered instrument and helm geometry */
 body[data-theme="walnut"],body[data-theme="walnut"] button,body[data-theme="walnut"] select{
  font-family: "Avenir Next",Avenir,Futura,"Helvetica Neue",Arial,sans-serif!important;
 }
@@ -416,12 +416,44 @@ body[data-theme="walnut"] .wheel-pad:before,body[data-theme="walnut"] .wheel-pad
  .deck>.stick-panel:first-child .pad{min-height:82px!important}
  .deck>.switch-panel .gauge{width:min(100%,17vh)!important}
 }
+
+/* V0.17 — stable dial geometry and compact landscape console */
+.gauge .dial-svg,.deck>.switch-panel .gauge .dial-svg{overflow:visible!important}
+.gauge .dial-svg .needle,.deck>.switch-panel .gauge .dial-svg .needle{transform-origin:100px 110px!important}
+.gauge strong,.gauge.compass strong,.deck>.switch-panel .gauge strong{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ box-sizing:border-box!important;min-width:0!important;width:68%!important;height:24%!important;
+ padding:0 2px!important;border:1px solid #71808b!important;border-radius:7px!important;
+ font-size:clamp(11px,2.5vh,16px)!important;letter-spacing:0!important;
+ top:67%!important;background:#15232ddd!important;
+}
+.gauge.compass .rose,.gauge .rose{
+ position:absolute!important;left:50%!important;top:43%!important;
+ transform:translate(-50%,-50%);transform-origin:center center!important;
+ line-height:1!important;width:32%!important;height:32%!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+}
+@media(orientation:landscape) and (max-height:540px){
+ .deck{grid-template-columns:minmax(90px,.23fr) minmax(270px,.77fr) minmax(0, .62fr)!important;gap:0!important}
+ .deck:before{width:calc((100% - 6px)*.617)!important}
+ .deck>.stick-panel:last-child{width:100%;max-width:none;margin-left:6px!important}
+ .deck>.stick-panel:last-child .pad{width:min(55dvh,100%)!important;height:auto!important;aspect-ratio:1!important;max-height:calc(100dvh - 125px)!important}
+ .deck>.switch-panel{gap:2px!important;justify-content:space-between!important;padding:4px 7px!important}
+ .deck>.switch-panel .gauges{gap:5px!important}
+ .deck>.switch-panel .gauge{width:min(100%,clamp(76px,21vh,124px))!important;max-width:124px!important}
+ .deck>.switch-panel h2{font-size:clamp(12px,2.4vh,16px)!important;margin:0!important}
+ .deck>.switch-panel .switches{gap:2px!important}
+ .deck>.switch-panel .switch{gap:2px!important}
+ .deck>.switch-panel .lever{height:22px!important}
+ .deck>.switch-panel .stop{padding:5px!important;margin:0!important}
+ .deck>.stick-panel:first-child .pad{height:min(68dvh,calc(100dvh - 112px))!important;min-height:0!important}
+}
 </style>
 </head>
 <body data-theme="walnut">
 <main class="shell">
 <header class="top">
-<div class="brand"><h1>MicroMarine Web</h1><small>RC BOAT CONTROL · V0.16</small></div>
+<div class="brand"><h1>MicroMarine Web</h1><small>RC BOAT CONTROL · V0.17</small></div>
 <div class="theme-box"><label for="theme">Design <select id="theme"><option value="maritime">Maritim · Teak</option><option value="neutral">Neutral · Modern</option><option value="walnut" selected>Walnut Classic</option></select></label></div>
 <button class="fullscreen" id="fullscreen" type="button" title="Vollbild">⛶ Vollbild</button>
 </header>
@@ -434,9 +466,9 @@ body[data-theme="walnut"] .wheel-pad:before,body[data-theme="walnut"] .wheel-pad
 <section class="deck" aria-label="Steuerung">
 <div class="stick-panel"><h2 id="leftTitle">Segel</h2><div class="pad lever-pad" id="leftPad" aria-label="Vertikaler Gas- oder Segelhebel" role="slider" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0" tabindex="0"><div class="lever-track"></div><div class="throttle-handle"><span class="throttle-grip"></span><span class="throttle-stem"></span><span class="throttle-base"></span></div></div><div class="value" id="leftValue">0 %</div></div>
 <div class="switch-panel"><section class="gauges" aria-label="Simulierte Telemetrie">
-<div class="gauge"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcBattery" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcBattery" startOffset="50%" text-anchor="middle">Akku · Spannung</textPath></text></svg><span class="sr-only">Akku · Spannung</span><svg class="dial dial-svg" viewBox="0 0 200 200" aria-hidden="true"><path d="M 33 110 A 67 67 0 0 1 167 110" fill="none" stroke="#546f66" stroke-width="12" stroke-linecap="round"/><path d="M 33 110 A 67 67 0 0 1 100 43" fill="none" stroke="#a34b44" stroke-width="12" stroke-linecap="round"/><g class="needle" style="transform:rotate(45deg)"><path d="M 100 110 L 97 66 Q 100 55 103 66 L 103 110 Z" fill="#e7e2d8" stroke="#33434a" stroke-width="2"/><circle cx="100" cy="110" r="8" fill="#c7bba8" stroke="#344148" stroke-width="3"/></g></svg><strong id="battery">4,05 V</strong><small>DEMO</small></div>
+<div class="gauge"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcBattery" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcBattery" startOffset="50%" text-anchor="middle">Akku · Spannung</textPath></text></svg><span class="sr-only">Akku · Spannung</span><svg class="dial dial-svg" viewBox="0 0 200 200" aria-hidden="true"><path d="M 33.00 110.00 A 67 67 0 0 1 45.80 70.62" fill="none" stroke="#c65d52" stroke-width="10" stroke-linecap="butt"/><path d="M 45.80 70.62 A 67 67 0 0 1 79.30 46.28" fill="none" stroke="#c8a85d" stroke-width="10" stroke-linecap="butt"/><path d="M 79.30 46.28 A 67 67 0 0 1 167.00 110.00" fill="none" stroke="#4b9b7d" stroke-width="10" stroke-linecap="butt"/><g class="needle" style="transform:rotate(45deg)"><path d="M 100 110 L 97 66 Q 100 55 103 66 L 103 110 Z" fill="#e7e2d8" stroke="#33434a" stroke-width="2"/><circle cx="100" cy="110" r="8" fill="#c7bba8" stroke="#344148" stroke-width="3"/></g></svg><strong id="battery">4,05 V</strong><small>DEMO</small></div>
 <div class="gauge compass"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcCompass" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcCompass" startOffset="50%" text-anchor="middle">Kompass</textPath></text></svg><span class="sr-only">Kompass</span><div class="rose" id="compassRose">✦</div><strong id="headingText">000°</strong><small>SIMULIERT</small></div>
-<div class="gauge" id="thirdGauge"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcPower" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcPower" startOffset="50%" text-anchor="middle"><tspan id="thirdGaugeTitle">Motorleistung</tspan></textPath></text></svg><span class="sr-only">Motorleistung</span><svg class="dial dial-svg" viewBox="0 0 200 200" aria-hidden="true"><path d="M 27 108 A 73 73 0 0 1 173 108" fill="none" stroke="#546f66" stroke-width="12" stroke-linecap="round"/><path d="M 27 108 A 73 73 0 0 1 100 35" fill="none" stroke="#a34b44" stroke-width="12" stroke-linecap="round"/><g class="needle" id="powerNeedle" style="transform:rotate(-85deg)"><path d="M 100 110 L 97 66 Q 100 55 103 66 L 103 110 Z" fill="#e7e2d8" stroke="#33434a" stroke-width="2"/><circle cx="100" cy="110" r="8" fill="#c7bba8" stroke="#344148" stroke-width="3"/></g></svg><strong id="power">0 %</strong><small>SIMULIERT</small></div>
+<div class="gauge" id="thirdGauge"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcPower" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcPower" startOffset="50%" text-anchor="middle"><tspan id="thirdGaugeTitle">Motorleistung</tspan></textPath></text></svg><span class="sr-only">Motorleistung</span><svg class="dial dial-svg" viewBox="0 0 200 200" aria-hidden="true"><g id="powerScale"><path d="M 33.00 110.00 A 67 67 0 0 1 167.00 110.00" fill="none" stroke="#6d8589" stroke-width="10" stroke-linecap="butt"/></g><g class="needle" id="powerNeedle" style="transform:rotate(-85deg)"><path d="M 100 110 L 97 66 Q 100 55 103 66 L 103 110 Z" fill="#e7e2d8" stroke="#33434a" stroke-width="2"/><circle cx="100" cy="110" r="8" fill="#c7bba8" stroke="#344148" stroke-width="3"/></g></svg><strong id="power">0 %</strong><small>SIMULIERT</small></div>
 </section><h2>Licht &amp; Sicherheit</h2><div class="switches">
 <label class="switch"><input type="checkbox" id="lights"><span class="lamp"></span><span class="lever"></span><span>Fahrlicht</span></label>
 <label class="switch"><input type="checkbox" id="decklight"><span class="lamp"></span><span class="lever"></span><span>Decklicht</span></label>
@@ -485,6 +517,7 @@ el.setAttribute("aria-valuenow",String(Math.round(-v.y*100)));
 el.querySelector(".wheel-assembly").style.transform="rotate("+(v.x*100)+"deg)";
 el.setAttribute("aria-valuenow",String(Math.round(v.x*100)));
 }}
+function scaleSegments(segments){const pt=t=>[100+67*Math.cos(Math.PI*(1-t)),110-67*Math.sin(Math.PI*(1-t))];return segments.map(([a,b,color])=>{const p=pt(a),q=pt(b);return `<path d="M ${p[0].toFixed(2)} ${p[1].toFixed(2)} A 67 67 0 0 1 ${q[0].toFixed(2)} ${q[1].toFixed(2)}" fill="none" stroke="${color}" stroke-width="10"/>`}).join("")}
 function update(){
 const throttle=Math.round(-left.y*100),rudder=Math.round(right.x*100);
 const sail=Math.round((1+left.y)*50); // top = 0% (hauled in), bottom = 100% (eased out)
@@ -494,9 +527,11 @@ $("leftValue").textContent=profile==="sail"?"Schot: "+sail+" %":"Gas: "+throttle
 $("rightValue").textContent=profile==="twin"?"Differenzial: "+rudder+" %":"Ruder: "+rudder+" %";
 const gaugeValue=profile==="sail"?sail:throttle;
 const signedPower=profile==="sail"?String(sail):(throttle<0?"−"+Math.abs(throttle):String(throttle));
+const powerScale=$("powerScale");
+if(powerScale){powerScale.innerHTML=profile==="sail"?scaleSegments([[0,1,"#4b9b7d"]]):scaleSegments([[0,.5,"#81909a"],[.5,1,"#4b9b7d"]]);}
 $("thirdGaugeTitle").textContent=profile==="sail"?"Segelstellung":"Motorleistung";
 $("power").textContent=signedPower+" %";
-$("powerNeedle").style.transform="rotate("+(profile==="sail"?-85+gaugeValue*1.7:gaugeValue*.85)+"deg)";
+$("powerNeedle").style.transform="rotate("+(profile==="sail"?-90+gaugeValue*1.8:gaugeValue*.9)+"deg)";
 $("outputs").textContent=profile==="sail"
 ?"Ruder "+rudder+" % · Schot "+sail+" % · Kein Motor"
 :profile==="single"
@@ -507,7 +542,7 @@ $("outputs").textContent=profile==="sail"
 function compassUpdate(){
 const angle=((heading%360)+360)%360;
 $("headingText").textContent=String(Math.round(angle)%360).padStart(3,"0")+"°";
-$("compassRose").style.transform="rotate("+(-angle)+"deg)";
+$("compassRose").style.transform="translate(-50%,-50%) rotate("+(-angle)+"deg)";
 }
 function axis(side){return side==="left"?"vertical":"horizontal"}
 function stick(id,side){
