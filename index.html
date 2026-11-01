@@ -11,7 +11,7 @@
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" type="image/svg+xml" href="./icon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="./micromarine-apple-touch-icon.png">
-<title>MicroMarine Web · V0.23</title>
+<title>MicroMarine Web · V0.24</title>
 <style>
 *{box-sizing:border-box}html{font-family:system-ui,-apple-system,Segoe UI,sans-serif}body{margin:0;min-height:100vh}button,select{font:inherit;cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #55c9e9;outline-offset:3px}
 body[data-theme="maritime"]{color:#271c15;background:linear-gradient(#a9c9d5 0,#507d92 22%,#173c55 44%,#082537 100%);background-attachment:fixed}
@@ -516,7 +516,7 @@ body[data-theme="walnut"] .wheel-assembly.helm-svg{filter:drop-shadow(0 3px 3px 
  .profile-window{height:34px}
 }
 
-/* V0.23: geometric balance, uniform switch row, walnut palette exchange */
+/* V0.24: geometric balance, uniform switch row, walnut palette exchange */
 body[data-theme="walnut"]{background:#302a27!important}
 body[data-theme="walnut"] .shell{background:#302a27!important}
 body[data-theme="walnut"] .brand,body[data-theme="walnut"] .info{background:#45423c!important;border-color:#817a6d!important;color:#e9dfcb!important}
@@ -540,7 +540,7 @@ body[data-theme="walnut"] .brand h1{color:#f0e8d9!important}
  .switches>.switch,.switches>.emergency{height:89px!important;min-height:89px!important}
 }
 
-/* V0.23 — rotating compass, aligned controls, full-length Bakelite pointer */
+/* V0.24 — rotating compass, aligned controls, full-length Bakelite pointer */
 .gauge.compass .rose,.gauge .rose{
  transform:translate(-50%,-50%) rotate(var(--compass-angle,0deg))!important;
  transition:transform .12s linear;
@@ -549,7 +549,7 @@ body[data-theme="walnut"] .brand h1{color:#f0e8d9!important}
 .switches>.switch{transform:translateY(-6px)!important}
 .switches>.switch>span:last-child{transform:translateY(6px)!important}
 
-/* V0.23 — precise baseline, taller/slimmer selector, continuous compass heading */
+/* V0.24 — precise baseline, taller/slimmer selector, continuous compass heading */
 .rotary-pointer{inset:0 8px!important;clip-path:polygon(50% 0,74% 42%,64% 100%,36% 100%,26% 42%)!important}
 .switches>.switch,.switches>.emergency{position:relative!important;transform:none!important;justify-content:flex-start!important;align-items:center!important;gap:0!important}
 .switches>.switch>.lamp{position:absolute!important;top:7px!important;left:50%!important;transform:translateX(-50%)!important;margin:0!important}
@@ -558,7 +558,7 @@ body[data-theme="walnut"] .brand h1{color:#f0e8d9!important}
 .switches>.switch>span:last-child,.switches>.emergency>small{position:absolute!important;bottom:0!important;left:0!important;transform:none!important;margin:0!important;height:19px!important;line-height:19px!important}
 .gauge.compass .rose{transition:transform .1s linear!important}
 
-/* V0.23: shared switch alignment; preserve the toggle's physical tilt */
+/* V0.24: shared switch alignment; preserve the toggle's physical tilt */
 .switches>.switch,.switches>.emergency{height:86px!important;min-height:86px!important;position:relative!important}
 .switches>.switch>.lamp{top:0!important;left:50%!important;transform:translateX(-50%)!important;margin:0!important}
 .switches>.switch>.lever{top:25px!important;left:50%!important;height:34px!important;transform:translateX(-50%) rotate(17deg)!important;transform-origin:50% 50%!important;transition:transform .15s ease!important;margin:0!important}
@@ -573,7 +573,7 @@ body[data-theme="walnut"] .brand h1{color:#f0e8d9!important}
 <body data-theme="walnut">
 <main class="shell">
 <header class="top">
-<div class="brand"><h1>MicroMarine Web</h1><small>RC BOAT CONTROL · V0.23</small></div>
+<div class="brand"><h1>MicroMarine Web</h1><small>RC BOAT CONTROL · V0.24</small></div>
 <div class="theme-box"><label for="theme">Design <select id="theme"><option value="maritime">Maritim · Teak</option><option value="neutral">Neutral · Modern</option><option value="walnut" selected>Walnut Classic</option></select></label></div>
 <button class="fullscreen" id="fullscreen" type="button" title="Vollbild">⛶ Vollbild</button>
 </header><div class="profile-legacy" aria-hidden="true"><button data-profile="sail" class="active" type="button">Segel</button><button data-profile="single" type="button">Motor</button><button data-profile="twin" type="button">Twin</button></div>
@@ -582,9 +582,9 @@ body[data-theme="walnut"] .brand h1{color:#f0e8d9!important}
 <section class="deck" aria-label="Steuerung">
 <div class="stick-panel"><h2 id="leftTitle" class="visually-hidden">Segel</h2><div class="pad lever-pad" id="leftPad" aria-label="Vertikaler Gas- oder Segelhebel" role="slider" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0" tabindex="0"><div class="lever-track"></div><div class="throttle-handle"><span class="throttle-grip"></span><span class="throttle-stem"></span><span class="throttle-base"></span></div></div><div class="value odometer throttle-readout" id="leftValue">Schot: 050 %</div></div>
 <div class="switch-panel"><div class="profile-selector"><button type="button" class="rotary-knob" id="rotaryKnob" aria-label="Nächsten Bootstyp wählen" title="Bootstyp wechseln"><span class="rotary-pointer"></span></button><div class="profile-window" id="profileWindow" role="status" aria-live="polite"><span id="profileDrum">SEGELBOOT</span></div></div><section class="gauges" aria-label="Simulierte Telemetrie">
-<div class="gauge"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcBattery" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcBattery" startOffset="50%" text-anchor="middle">Akku · Spannung</textPath></text></svg><span class="sr-only">Akku · Spannung</span><svg class="dial dial-svg" viewBox="0 0 200 200" aria-hidden="true"><path d="M 33.00 110.00 A 67 67 0 0 1 45.80 70.62" fill="none" stroke="#c65d52" stroke-width="10" stroke-linecap="butt"/><path d="M 45.80 70.62 A 67 67 0 0 1 79.30 46.28" fill="none" stroke="#c8a85d" stroke-width="10" stroke-linecap="butt"/><path d="M 79.30 46.28 A 67 67 0 0 1 167.00 110.00" fill="none" stroke="#4b9b7d" stroke-width="10" stroke-linecap="butt"/><g class="needle" style="transform:rotate(45deg)"><path d="M 100 110 L 97 66 Q 100 55 103 66 L 103 110 Z" fill="#e7e2d8" stroke="#33434a" stroke-width="2"/><circle cx="100" cy="110" r="8" fill="#c7bba8" stroke="#344148" stroke-width="3"/></g></svg><strong id="battery">4,05 V</strong><small>DEMO</small></div>
-<div class="gauge compass"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcCompass" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcCompass" startOffset="50%" text-anchor="middle">Kompass</textPath></text></svg><span class="sr-only">Kompass</span><div class="rose" id="compassRose"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="#d9d3be" stroke="#82939a" stroke-width=".7"><path d="M50 5 57 43 50 50 43 43Z"/><path d="M95 50 57 57 50 50 57 43Z"/><path d="M50 95 43 57 50 50 57 57Z"/><path d="M5 50 43 43 50 50 43 57Z"/></g><g font-size="13" font-family="Arial,sans-serif" font-weight="700" fill="#f4eee0" text-anchor="middle"><text x="50" y="13">N</text><text x="89" y="54">O</text><text x="50" y="95">S</text><text x="11" y="54">W</text></g></svg></div><strong id="headingText">000°</strong><small>SIMULIERT</small></div>
-<div class="gauge" id="thirdGauge"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcPower" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcPower" startOffset="50%" text-anchor="middle"><tspan id="thirdGaugeTitle">Motorleistung</tspan></textPath></text></svg><span class="sr-only">Motorleistung</span><svg class="dial dial-svg" viewBox="0 0 200 200" aria-hidden="true"><g id="powerScale"><path d="M 33.00 110.00 A 67 67 0 0 1 167.00 110.00" fill="none" stroke="#6d8589" stroke-width="10" stroke-linecap="butt"/></g><g class="needle" id="powerNeedle" style="transform:rotate(-85deg)"><path d="M 100 110 L 97 66 Q 100 55 103 66 L 103 110 Z" fill="#e7e2d8" stroke="#33434a" stroke-width="2"/><circle cx="100" cy="110" r="8" fill="#c7bba8" stroke="#344148" stroke-width="3"/></g></svg><strong id="power">0 %</strong><small>SIMULIERT</small></div>
+<div class="gauge"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcBattery" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcBattery" startOffset="50%" text-anchor="middle">Akku · Spannung</textPath></text></svg><span class="sr-only">Akku · Spannung</span><svg class="dial dial-svg" viewBox="0 0 200 200" aria-hidden="true"><path d="M 33.00 110.00 A 67 67 0 0 1 45.80 70.62" fill="none" stroke="#c65d52" stroke-width="10" stroke-linecap="butt"/><path d="M 45.80 70.62 A 67 67 0 0 1 79.30 46.28" fill="none" stroke="#c8a85d" stroke-width="10" stroke-linecap="butt"/><path d="M 79.30 46.28 A 67 67 0 0 1 167.00 110.00" fill="none" stroke="#4b9b7d" stroke-width="10" stroke-linecap="butt"/><g class="needle" style="transform:rotate(45deg)"><path d="M 100 110 L 97 66 Q 100 55 103 66 L 103 110 Z" fill="#e7e2d8" stroke="#33434a" stroke-width="2"/><circle cx="100" cy="110" r="8" fill="#c7bba8" stroke="#344148" stroke-width="3"/></g></svg><strong id="battery">4,05 V</strong></div>
+<div class="gauge compass"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcCompass" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcCompass" startOffset="50%" text-anchor="middle">Kompass</textPath></text></svg><span class="sr-only">Kompass</span><div class="rose" id="compassRose"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="#d9d3be" stroke="#82939a" stroke-width=".7"><path d="M50 5 57 43 50 50 43 43Z"/><path d="M95 50 57 57 50 50 57 43Z"/><path d="M50 95 43 57 50 50 57 57Z"/><path d="M5 50 43 43 50 50 43 57Z"/></g><g font-size="13" font-family="Arial,sans-serif" font-weight="700" fill="#f4eee0" text-anchor="middle"><text x="50" y="13">N</text><text x="89" y="54">O</text><text x="50" y="95">S</text><text x="11" y="54">W</text></g></svg></div><strong id="headingText">000°</strong></div>
+<div class="gauge" id="thirdGauge"><svg class="gauge-arc" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="arcPower" d="M 24,105 A 76,76 0 0,1 176,105"/></defs><text><textPath href="#arcPower" startOffset="50%" text-anchor="middle"><tspan id="thirdGaugeTitle">Motorleistung</tspan></textPath></text></svg><span class="sr-only">Motorleistung</span><svg class="dial dial-svg" viewBox="0 0 200 200" aria-hidden="true"><g id="powerScale"><path d="M 33.00 110.00 A 67 67 0 0 1 167.00 110.00" fill="none" stroke="#6d8589" stroke-width="10" stroke-linecap="butt"/></g><g class="needle" id="powerNeedle" style="transform:rotate(-85deg)"><path d="M 100 110 L 97 66 Q 100 55 103 66 L 103 110 Z" fill="#e7e2d8" stroke="#33434a" stroke-width="2"/><circle cx="100" cy="110" r="8" fill="#c7bba8" stroke="#344148" stroke-width="3"/></g></svg><strong id="power">0 %</strong></div>
 </section><div class="switches">
 <label class="switch"><input type="checkbox" id="lights"><span class="lamp"></span><span class="lever"></span><span>Fahrlicht</span></label>
 <label class="switch"><input type="checkbox" id="decklight"><span class="lamp"></span><span class="lever"></span><span>Decklicht</span></label>
